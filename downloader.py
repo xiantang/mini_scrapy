@@ -2,8 +2,9 @@ from urllib.parse import urlparse
 
 import requests
 
-from http_.response import Response
+from http_client.response import Response
 from utils import logger
+from downloadermiddleware import DownloaderMiddlewareManager
 
 
 class DownloadHandler(object):
@@ -33,18 +34,29 @@ class DownloadHandler(object):
         session = self._get_session(url)
         logger.info("processing %s", url)
         response = session.get(url,**kwargs)
-        return Response(response.url,response.s)
+        # print(len(response.text))
+        r= Response(response.url, response.status_code,
+                        response.headers, response.content)
+
+        return r
+
+
+
 
 
 class Downloader(object):
 
     def __init__(self,spider):
         self.hanlder = DownloadHandler(spider)
-        self.middleware = DownloaderMiddlewareManger(spider)
+        self.middleware = DownloaderMiddlewareManager(spider)
 
     def fetch(self,request,spider):
-        return self.middleware.download(self._download,request)
+        resp=self.middleware.download(self._download, request)
+        # print(resp)
+        return resp
 
     def _download(self,request):
-        return self.hanlder.fetch(request)
+        resp = self.hanlder.fetch(request)
+        # print(resp)
+        return resp
 

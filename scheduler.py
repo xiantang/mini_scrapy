@@ -47,6 +47,7 @@ class RequestFilter(object):
         :param requests:
         :return:
         """
+
         finger = request_fingerprint(request)
         if finger in self.sbf:
             return True

@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from http_.request import Request
+from http_client.request import Request
 from utils import iter_children_classes, call_func
 
 class DownloaderMiddleware(object):
@@ -27,8 +27,10 @@ class DownloaderMiddlewareManager(object):
         #FIXME:I don‘t know what globals().values() mean
         middlewares = []
         for miw in iter_children_classes(
+
             globals().values(),DownloaderMiddleware
         ):
+
             middlewares.append(miw(self.settings))
         return middlewares
 
@@ -52,13 +54,19 @@ class DownloaderMiddlewareManager(object):
         def process_request(request):
             for method in self.methods['process_request']:
                 method(request)
-            return download_func(request)
+            response= download_func(request)
+
+            return response
 
         def process_response(response):
+
             for method in self.methods['prcess_response']:
+
                 response = method(request,response)
                 if isinstance(response,Request):
-                    return  response
+                    return response
+                #解决了一个bug return 放在上一级
+            return response
 
         def process_exception(exception):
             for method in self.methods['process_exception']:
@@ -66,6 +74,6 @@ class DownloaderMiddlewareManager(object):
                 if response:
                     return response
             return exception
-
+        # print(self.methods)
         return call_func(process_request,process_exception,
                          process_response,request)

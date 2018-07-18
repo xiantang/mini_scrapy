@@ -30,16 +30,21 @@ logger = get_logger("myLogger")
 
 
 def request_fingerprint(request):
+    # print(request.url)
     scheme, netloc, path, params, query, fragment = urlparse(request.url)
     #处理一下 把参数位置不一样的哈希一下
     keyvals = parse_qsl(query)
     keyvals.sort()
+
     query = urlencode(keyvals)
+
     canonicalize_url = urlunparse((
         scheme, netloc.lower(), path, params, query, fragment)
     )
+
+
     fpr = hashlib.sha1()
-    fpr.update(canonicalize_url)
+    fpr.update(canonicalize_url.encode('utf-8'))
     return fpr.hexdigest()
 
 def iter_children_classes(values,clazz):
@@ -65,10 +70,28 @@ def call_func(func,errback = None,callback = None,*args,**kwargs):
     """
     try:
         result = func(*args,**kwargs)
+
     except Exception as exc:
+        #异常回调函数
         if errback:
             errback(exc)
     else:
         if callback:
+
             result = callback(result)
+
         return  result
+
+def get_result_list(result):
+    if result is None:
+        return []
+    if isinstance(result,(dict,str)):
+        return [result]
+    if hasattr(result,"__iter__"):
+        #如果是生成器对象
+        return  result
+
+def join_all(funcs):
+    """join all
+    """
+    gevent.joinall(funcs)

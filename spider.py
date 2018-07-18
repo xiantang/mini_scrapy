@@ -1,6 +1,6 @@
 """Base Spider"""
 
-from http_.request import Request
+from http_client.request import Request
 from Engine import Engine
 from conf.settings import Settings
 
