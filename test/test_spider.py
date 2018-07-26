@@ -1,6 +1,6 @@
 from gevent import monkey
 monkey.patch_all()
-from spider import Spider
+from core.spider import Spider
 from http_client.request import Request
 
 class TestSpider(Spider):
@@ -17,6 +17,16 @@ class TestSpider(Spider):
         "https://map.baidu.com/"
     ]
 
+
+    @classmethod
+    def from_crawler(cls, crawler,integer=1, *args, **kwargs):
+        spider = cls(*args,**kwargs)
+        spider.integer = integer
+        return spider
+
+
+
+
     def parse(self, response):
 
         print(response.url,len(response.body))
@@ -30,10 +40,10 @@ class TestSpider(Spider):
         print(len(response.body))
 
 
-def main():
-    spider = TestSpider()
-    spider.start()
-
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     spider = TestSpider()
+#     spider.start()
+#
+#
+# if __name__ == "__main__":
+#     main()
