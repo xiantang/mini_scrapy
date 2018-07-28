@@ -2,9 +2,9 @@ from urllib.parse import urlparse
 
 import requests
 
-from http_client.response import Response
-from utils import logger
-from downloadermiddleware import DownloaderMiddlewareManager
+from mini_scrapy.http_client.response import Response
+from mini_scrapy.utils import logger
+from mini_scrapy.downloadermiddleware import DownloaderMiddlewareManager
 
 
 class DownloadHandler(object):

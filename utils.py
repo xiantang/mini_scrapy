@@ -3,17 +3,17 @@ import inspect
 import logging
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
 
-import gevent
 
-def spawn(func,*args,**kwargs):
-    """
-    加入协称
-    :param func:
-    :param args:
-    :param kwargs:
-    :return:
-    """
-    return gevent.spawn(func,*args,**kwargs)
+
+# def spawn(func,*args,**kwargs):
+#     """
+#     加入协称
+#     :param func:
+#     :param args:
+#     :param kwargs:
+#     :return:
+#     """
+#     return gevent.spawn(func,*args,**kwargs)
 
 
 def get_logger(name):
@@ -91,7 +91,7 @@ def get_result_list(result):
         #如果是生成器对象
         return  result
 
-def join_all(funcs):
-    """join all
-    """
-    gevent.joinall(funcs)
+# def join_all(funcs):
+#     """join all
+#     """
+#     gevent.joinall(funcs)

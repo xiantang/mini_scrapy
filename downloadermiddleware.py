@@ -1,7 +1,7 @@
 from collections import defaultdict
 
-from http_client.request import Request
-from utils import iter_children_classes, call_func
+from mini_scrapy.http_client.request import Request
+from mini_scrapy.utils import iter_children_classes, call_func
 
 class DownloaderMiddleware(object):
 

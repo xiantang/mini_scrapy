@@ -1,4 +1,4 @@
-from core.crawler import Crawler
+from mini_scrapy.core.crawler import Crawler
 
 def run(spidercls):
     crawler=init_spider(spidercls=spidercls)

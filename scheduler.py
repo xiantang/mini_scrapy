@@ -1,7 +1,7 @@
-from gevent.queue import Queue
+from queue import Queue
 
-from utils import logger, request_fingerprint
-from bloom import BloomFilter
+from mini_scrapy.utils import logger, request_fingerprint
+from mini_scrapy.bloom import BloomFilter
 
 class Scheduler(object):
 
@@ -27,7 +27,9 @@ class Scheduler(object):
         """
         if self.queue.empty():
             return None
-        return self.queue.get()
+        next_request = self.queue.get()
+        self.queue.task_done()
+        return next_request
 
     def __len__(self):
         return self.queue.qsize()

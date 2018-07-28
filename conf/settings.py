@@ -1,7 +1,7 @@
 import json
 from importlib import import_module
 
-from conf import default_settings
+from mini_scrapy.conf import default_settings
 
 
 class Attribute(object):

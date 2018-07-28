@@ -1,15 +1,12 @@
-from gevent import monkey
-
-monkey.patch_all()
-
-from utils import spawn, get_result_list, join_all
+import time
+from threading import Thread
+from mini_scrapy.utils import  get_result_list
 
 import logging
-import gevent
-from gevent.pool import Pool
-from scheduler import Scheduler
-from downloader import Downloader
-from http_client.request import Request
+
+from mini_scrapy.scheduler import Scheduler
+from mini_scrapy.downloader import Downloader
+from mini_scrapy.http_client.request import Request
 
 
 class Engine(object):
@@ -25,8 +22,8 @@ class Engine(object):
         self.scheduler = Scheduler()
         self.downloader = Downloader(spider)
         self.setting = spider.settings
-        max_request_size = self.setting['MAX_REQUEST_SIZE']
-        self.pool = Pool(size=max_request_size)
+        self.max_request_size = self.setting['MAX_REQUEST_SIZE']
+        # self.pool = Pool(size=max_request_size)
 
     def start(self):
         start_requests = iter(self.spider.start_requests())
@@ -34,12 +31,19 @@ class Engine(object):
 
     def execute(self, spider, start_requests):
         self.start_requests = start_requests
+        #TODO 使用线程池
         all_routines = []
-        all_routines.append(spawn(self._init_start_requests))
-        all_routines.append(spawn(self._next_request, spider))
-        # all_routines.append(spawn(self._next_request,spider))
-        join_all(all_routines)
+        t_init=Thread(target=self._init_start_requests,daemon=True)
 
+
+        all_routines.append(t_init)
+        for i in range(self.max_request_size):
+            all_routines.append(Thread(target=self._next_request,args=(spider,),daemon=True))
+
+        for t in all_routines:
+            t.start()
+
+        self.close_spider()
     def _init_start_requests(self):
         """
         init start requests
@@ -54,13 +58,13 @@ class Engine(object):
             request = self.scheduler.next_request()
             # 从调度器中取出request对象
             if not request:
-                gevent.sleep(0.2)
+                time.sleep(0.2)
                 continue
 
             # 拿出来下载
-            self.pool.spawn(
-                self._process_request, request, spider
-            )
+
+            self._process_request(request, spider)
+
 
     def _process_request(self, request, spider):
         try:
@@ -125,4 +129,15 @@ class Engine(object):
     def process_item(self, item, spider):
         spider.process_item(item)
 
-    # def _next_request(self,spider):
+
+    def close_spider(self):
+        """
+        关闭爬虫
+        :return:
+        """
+        time.sleep(2)
+        while True:
+            if self.scheduler.queue.empty():
+                logging.info("spider is over")
+                break
+        # def _next_request(self,spider):
