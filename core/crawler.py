@@ -1,14 +1,16 @@
-
-
+import importlib
 
 
 class Crawler():
 
     def __init__(self,spider_cls,*args,**kwargs):
         self.spider_cls = spider_cls
-        self._load_spider()
+        self.settings = importlib.import_module('settings')
+
         self.spider = None
         self._load_spider(*args,**kwargs)
+
+
 
 
 

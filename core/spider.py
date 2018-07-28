@@ -18,8 +18,8 @@ class Spider(object):
         if not hasattr(self,"start_urls"):
             self.start_urls = []
             #初始化
-        self.settings = Settings(self.custom_setting)
-        self.initialize()
+
+
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
@@ -29,13 +29,16 @@ class Spider(object):
 
     def _set_crawler(self,crawler):
         self.crawler = crawler
+        self._load_settings()
 
-    def initialize(self):
+    def _load_settings(self):
         """
-        initialize
+        load setings of custom_setting and settings.py
         :return:
         """
-        pass
+        self.settings = Settings(self.custom_setting)
+        self.settings.load_config(self.crawler.settings)
+
 
     def start_requests(self):
         for url in self.start_urls:

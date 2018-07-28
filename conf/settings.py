@@ -31,9 +31,11 @@ class Settings(object):
 
     def load_config(self, module):
         if isinstance(module, str):
+            #如果是字符串 就导入这个模块
             module = import_module(module)
         for key in dir(module):
             if key.isupper():
+                #是否是大写的 如果是的话就导入
                 self.set(key, getattr(module, key))
 
     def set(self, key, value):

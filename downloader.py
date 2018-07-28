@@ -25,7 +25,7 @@ class DownloadHandler(object):
         return requests.Session()
 
     def fetch(self,request):
-
+        #TODO 他写的有点炸裂 要重写一遍
         kwargs = {
             "headers": request.headers,
             "timeout": self.settings["TIMEOUT"],

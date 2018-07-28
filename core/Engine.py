@@ -1,9 +1,7 @@
 import time
 from threading import Thread
-from mini_scrapy.utils import  get_result_list
-
+from mini_scrapy.utils import get_result_list
 import logging
-
 from mini_scrapy.scheduler import Scheduler
 from mini_scrapy.downloader import Downloader
 from mini_scrapy.http_client.request import Request
@@ -31,19 +29,19 @@ class Engine(object):
 
     def execute(self, spider, start_requests):
         self.start_requests = start_requests
-        #TODO 使用线程池
+        # TODO 完善线程池
         all_routines = []
-        t_init=Thread(target=self._init_start_requests,daemon=True)
-
+        t_init = Thread(target=self._init_start_requests, daemon=True)
 
         all_routines.append(t_init)
         for i in range(self.max_request_size):
-            all_routines.append(Thread(target=self._next_request,args=(spider,),daemon=True))
+            all_routines.append(Thread(target=self._next_request, args=(spider,), daemon=True))
 
         for t in all_routines:
             t.start()
 
         self.close_spider()
+
     def _init_start_requests(self):
         """
         init start requests
@@ -64,7 +62,6 @@ class Engine(object):
             # 拿出来下载
 
             self._process_request(request, spider)
-
 
     def _process_request(self, request, spider):
         try:
@@ -129,7 +126,6 @@ class Engine(object):
     def process_item(self, item, spider):
         spider.process_item(item)
 
-
     def close_spider(self):
         """
         关闭爬虫
@@ -140,4 +136,4 @@ class Engine(object):
             if self.scheduler.queue.empty():
                 logging.info("spider is over")
                 break
-        # def _next_request(self,spider):
+
