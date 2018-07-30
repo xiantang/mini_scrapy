@@ -2,17 +2,7 @@ import hashlib
 import inspect
 import logging
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse, urlsplit
-from mini_scrapy.http_client.response import Response
-# def spawn(func,*args,**kwargs):
-#     """
-#     加入协称
-#     :param func:
-#     :param args:
-#     :param kwargs:
-#     :return:
-#     """
-#     return gevent.spawn(func,*args,**kwargs)
-
+from mini_scrapy.http.response import Response
 
 
 def get_logger(name):
@@ -83,7 +73,7 @@ def call_func(func, errback=None, callback=None, *args, **kwargs):
         return result
 
 
-def get_result_list(result):
+def get_result_list(result:list)->list:
     if result is None:
         return []
     if isinstance(result, (dict, str)):
@@ -94,17 +84,18 @@ def get_result_list(result):
 
 
 def url_join(response: Response, suburl: str) -> str:
+    """
+    通过response对象来整合部分的url 使其合法
+    :param response:
+    :param suburl:
+    :return:
+    """
     response_url = response.url
     scheme,netloc,*surplus=urlsplit(response_url)
     pre_url = scheme + '://'+ netloc
     complete_url = pre_url + suburl
     return complete_url
 
-
-# def join_all(funcs):
-#     """join all
-#     """
-#     gevent.joinall(funcs)
 if __name__ == '__main__':
 
     r=Response("https://blog.csdn.net/u010255818/article/details/52740671")

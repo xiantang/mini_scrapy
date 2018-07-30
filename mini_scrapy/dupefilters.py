@@ -3,6 +3,8 @@ from bitarray import bitarray
 # 3rd party
 import mmh3
 
+from mini_scrapy.untils.untils import request_fingerprint
+
 
 class BloomFilter(set):
 
@@ -34,3 +36,24 @@ class BloomFilter(set):
                 out = False
 
         return out
+
+class RFPDupeFilter(object):
+
+    def __init__(self):
+        #TODO read arg from setting
+        self.sbf = BloomFilter(
+            100000,10
+        )
+
+    def request_seen(self,request):
+        """
+        request seen
+        :param requests:
+        :return:
+        """
+
+        finger = request_fingerprint(request)
+        if finger in self.sbf:
+            return True
+        self.sbf.add(finger)
+        return False

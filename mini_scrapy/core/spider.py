@@ -1,7 +1,7 @@
 """Base Spider"""
 
-from mini_scrapy.http_client.request import Request
-from mini_scrapy.core.Engine import Engine
+from mini_scrapy.http.request import Request
+from mini_scrapy.core.engine import Engine
 from mini_scrapy.conf.settings import Settings
 
 class Spider(object):
@@ -37,17 +37,17 @@ class Spider(object):
         load setings of custom_setting and settings.py
         :return:
         """
-        self.settings = Settings(self.custom_setting)
-        self.settings.load_config(self.crawler.settings)
+        #TODO:load custom user defined in spider.
+        self.settings = self.crawler.settings
 
 
     def start_requests(self):
         for url in self.start_urls:
             yield Request(url)
 
-    def start(self):
-        engine = Engine(self)
-        engine.start()
+    # def start(self):
+    #     engine = Engine(self)
+    #     engine.start()
 
     def parse(self,response):
         raise NotImplementedError

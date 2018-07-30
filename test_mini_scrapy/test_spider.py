@@ -10,7 +10,6 @@ class TestSpider(Spider):
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
         spider = super(TestSpider, cls).from_crawler(crawler, *args, **kwargs)
-        print(args)
         return spider
 
     def start_requests(self):

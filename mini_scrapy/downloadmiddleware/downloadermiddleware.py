@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from mini_scrapy.http_client.request import Request
+from mini_scrapy.http.request import Request
 from mini_scrapy.untils.untils import iter_children_classes, call_func
 
 

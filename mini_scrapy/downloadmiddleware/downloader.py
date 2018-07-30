@@ -2,9 +2,9 @@ from urllib.parse import urlparse
 
 import requests
 
-from mini_scrapy.http_client.response import Response
+from mini_scrapy.http.response import Response
 from mini_scrapy.untils.untils import logger
-from mini_scrapy.downloadermiddleware import DownloaderMiddlewareManager
+from mini_scrapy.downloadmiddleware.downloadermiddleware import DownloaderMiddlewareManager
 
 
 class DownloadHandler(object):
@@ -46,7 +46,8 @@ class DownloadHandler(object):
 
 class Downloader(object):
 
-    def __init__(self,spider):
+    def __init__(self,crawler):
+        spider = crawler.spider
         self.hanlder = DownloadHandler(spider)
         self.middleware = DownloaderMiddlewareManager(spider)
 

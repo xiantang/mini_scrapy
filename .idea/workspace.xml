@@ -2,31 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4344e082-8d85-4ee3-92c0-ac6b03235a30" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/mini_scrapy/test/test_until.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mini_scrapy/untils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_mini_scrapy/test_spider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini_scrapy/dupefilters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mini_scrapy/http/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_scrapy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/core/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/Engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/bloom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/core/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_scrapy/core/crawler.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/crawler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_scrapy/core/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/core/start_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/start_spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/downloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/downloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/downloadermiddleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/downloadermiddleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/http_client/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/http_client/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/scheduler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/test/test_from_setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/test/test_from_setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/test/test_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/test/test_spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/untils/untils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/basecommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/basecommand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/typing.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_internal/utils/typing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/cookies.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/cookies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/requests/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_mini_scrapy/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_mini_scrapy/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_mini_scrapy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_mini_scrapy/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_mini_scrapy/spider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/downloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/downloadermiddleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloadermiddleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/http_client/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/scrapy_load_object().md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/http_client/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/http/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/http_client/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/http/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/dict_learn.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/dict_learn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/learn_geven.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/learn_geven.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/learn_test.md" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/learn_test.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/mathfunc.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/mathfunc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/parse_url.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/parse_url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/test_mathfunc.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/test_mathfunc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/learn/test_suite.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/test_suite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/scheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/test/test_from_setting.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/test/test_spider.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/test/test_until.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/test/test_until.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/untils/untils.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/untils/untils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/pyparsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/six.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/six.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/six.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/urllib3/packages/six.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_mini_scrapy/test_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_mini_scrapy/test_spider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,13 +49,14 @@
     <SUITE FILE_PATH="coverage/mini_scrapy$response.coverage" NAME="response Coverage Results" MODIFIED="1531815140207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/http_" />
     <SUITE FILE_PATH="coverage/mini_scrapy$learn_geven.coverage" NAME="learn_geven Coverage Results" MODIFIED="1531726941848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learn" />
     <SUITE FILE_PATH="coverage/mini_scrapy$test_spider.coverage" NAME="test_spider Coverage Results" MODIFIED="1532595864654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/mini_scrapy$run.coverage" NAME="run Coverage Results" MODIFIED="1532925572944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_mini_scrapy" />
-    <SUITE FILE_PATH="coverage/mini_scrapy$request.coverage" NAME="request Coverage Results" MODIFIED="1531815154607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/http_" />
+    <SUITE FILE_PATH="coverage/mini_scrapy$run.coverage" NAME="run Coverage Results" MODIFIED="1532936429521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_mini_scrapy" />
+    <SUITE FILE_PATH="coverage/mini_scrapy$request.coverage" NAME="request Coverage Results" MODIFIED="1532929753765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini_scrapy/http_client" />
     <SUITE FILE_PATH="coverage/mini_scrapy$test_suite.coverage" NAME="test_suite Coverage Results" MODIFIED="1532589727321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learn" />
     <SUITE FILE_PATH="coverage/mini_scrapy$Unittests_in_test_mathfunc_py.coverage" NAME="Unittests in test_mathfunc.py Coverage Results" MODIFIED="1532399341297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learn" />
     <SUITE FILE_PATH="coverage/mini_scrapy$Unittests_in_test_from_setting_py.coverage" NAME="Unittests in test_from_setting.py Coverage Results" MODIFIED="1532597511711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/mini_scrapy$spider.coverage" NAME="spider Coverage Results" MODIFIED="1531735487107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mini_scrapy$test_spider__1_.coverage" NAME="test_spider (1) Coverage Results" MODIFIED="1532919526884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_mini_scrapy" />
+    <SUITE FILE_PATH="coverage/mini_scrapy$Unittests_in_test_until_py.coverage" NAME="Unittests in test_until.py Coverage Results" MODIFIED="1532932910238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini_scrapy/test" />
     <SUITE FILE_PATH="coverage/mini_scrapy$test.coverage" NAME="test Coverage Results" MODIFIED="1531733569328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mini_scrapy$parse_url.coverage" NAME="parse_url Coverage Results" MODIFIED="1531730202051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learn" />
     <SUITE FILE_PATH="coverage/mini_scrapy$Unittests_for_test_mathfunc_TestMathFunc.coverage" NAME="Unittests for test_mathfunc.TestMathFunc Coverage Results" MODIFIED="1532396264584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learn" />
@@ -68,14 +77,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6497462">
+    <splitter split-orientation="horizontal" split-proportion="0.6729514">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="scheduler.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/scheduler.py">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/core/scheduler.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1034">
-                  <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+                <state relative-caret-position="-18">
+                  <caret line="18" selection-start-line="18" selection-end-line="18" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
                   </folding>
@@ -83,20 +92,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="bloom.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/bloom.py">
+          <file leaf-file-name="dupefilters.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/dupefilters.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="220">
-                  <caret line="13" selection-start-line="13" selection-end-line="13" />
+                <state relative-caret-position="286">
+                  <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#29#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="downloader.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/downloader.py">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="127">
-                  <caret line="49" selection-start-line="49" selection-end-line="49" />
+                <state relative-caret-position="351">
+                  <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#33#0" expanded="true" />
                   </folding>
@@ -104,68 +116,13 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test_until.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_until.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="44">
-                  <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/untils/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="22">
-                  <caret line="1" selection-start-line="1" selection-end-line="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/requirements.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="44">
-                  <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="downloadermiddleware.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadermiddleware.py">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloadermiddleware.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-220">
-                  <caret line="11" selection-start-line="11" selection-end-line="11" />
+                <state relative-caret-position="924">
+                  <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="untils.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/untils/untils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="88">
-                  <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-                  <folding>
-                    <element signature="e#0#14#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="test_spider.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test_mini_scrapy/test_spider.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="13" selection-start-line="13" selection-end-line="13" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -174,20 +131,20 @@
           <file leaf-file-name="spider.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mini_scrapy/core/spider.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+                <state relative-caret-position="170">
+                  <caret line="40" selection-start-line="40" selection-end-line="40" />
                   <folding>
-                    <element signature="e#19#70#0" expanded="true" />
+                    <element signature="e#19#63#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Engine.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/core/Engine.py">
+          <file leaf-file-name="engine.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/core/engine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+                <state relative-caret-position="211">
+                  <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
@@ -195,11 +152,60 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/test_mini_scrapy/settings.py">
+          <file leaf-file-name="crawler.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/core/crawler.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="22">
-                  <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+                <state relative-caret-position="498">
+                  <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+                  <folding>
+                    <element signature="e#0#16#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="154">
+                    <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="test_spider.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/test_mini_scrapy/test_spider.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="242">
+                  <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="response.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/http/response.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-371">
+                  <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="request.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/http/request.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="814">
+                  <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -213,11 +219,26 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="crawler.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mini_scrapy/core/crawler.py">
+          <file leaf-file-name="scrapy_load_object().md" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/Markdown/scrapy_load_object().md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="88">
+                    <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="untils.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mini_scrapy/untils/untils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
+                <state relative-caret-position="880">
+                  <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+                  <folding>
+                    <element signature="e#0#14#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -230,12 +251,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Markdown" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>pool</find>
+      <find>Settings</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -244,14 +267,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/http.py" />
-        <option value="$PROJECT_DIR$/http/request.py" />
-        <option value="$PROJECT_DIR$/http/response.py" />
-        <option value="$PROJECT_DIR$/learn/learn_geven.py" />
-        <option value="$PROJECT_DIR$/learn/parse_url.py" />
-        <option value="$PROJECT_DIR$/bloom.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/conf/Setting.py" />
         <option value="$PROJECT_DIR$/conf/default_settings.py" />
         <option value="$PROJECT_DIR$/conf/settings.py" />
@@ -274,9 +289,7 @@
         <option value="$PROJECT_DIR$/test/test_from_setting.py" />
         <option value="$PROJECT_DIR$/test_mini_scrapy/settings.py" />
         <option value="$PROJECT_DIR$/test_mini_scrapy/spider.py" />
-        <option value="$PROJECT_DIR$/mini_scrapy/core/crawler.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/http_client/response.py" />
-        <option value="$PROJECT_DIR$/mini_scrapy/__init__.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/utils/__init__.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/utils/utils.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/core/Engine.py" />
@@ -287,12 +300,24 @@
         <option value="$PROJECT_DIR$/mini_scrapy/untils/__init__.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/downloadermiddleware.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/test/test_from_setting.py" />
-        <option value="$PROJECT_DIR$/mini_scrapy/requirements.txt" />
         <option value="$PROJECT_DIR$/test_mini_scrapy/run.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/core/start_spider.py" />
         <option value="$PROJECT_DIR$/test_mini_scrapy/test_spider.py" />
-        <option value="$PROJECT_DIR$/mini_scrapy/core/spider.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/requirements.txt" />
+        <option value="$PROJECT_DIR$/mini_scrapy/http_client/request.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/bloom.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/dupefilters.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/learn/scrapy_load_object().md" />
+        <option value="$PROJECT_DIR$/mini_scrapy/__init__.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/test/test_until.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/untils/untils.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/core/scheduler.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/core/engine.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/core/spider.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/core/crawler.py" />
+        <option value="$PROJECT_DIR$/mini_scrapy/README.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -329,41 +354,6 @@
               <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
               <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="http_client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="learn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="untils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="test_mini_scrapy" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -371,14 +361,18 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="crawler&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/mini_scrapy/downloadmiddleware" />
+      <recent name="$PROJECT_DIR$/mini_scrapy/core" />
       <recent name="$PROJECT_DIR$/mini_scrapy/utils" />
       <recent name="$PROJECT_DIR$/core" />
     </key>
@@ -396,6 +390,25 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.run">
+    <configuration name="request" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="mini_scrapy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mini_scrapy/http_client" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mini_scrapy/http_client/request.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="mini_scrapy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -434,25 +447,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="test_spider" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="mini_scrapy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_spider.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="untils" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="mini_scrapy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -472,34 +466,34 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="Unittests in /home/didi/repertory/mini_scrapy/test/test_from_setting.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in test_until.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="mini_scrapy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mini_scrapy/test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_from_setting.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/mini_scrapy/test/test_until.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list>
-      <item itemvalue="Python.test_spider" />
-      <item itemvalue="Python tests.Unittests in /home/didi/repertory/mini_scrapy/test/test_from_setting.py" />
       <item itemvalue="Python.run" />
       <item itemvalue="Python.test_spider (1)" />
       <item itemvalue="Python.untils" />
+      <item itemvalue="Python.request" />
+      <item itemvalue="Python tests.Unittests in test_until.py" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.run" />
+        <item itemvalue="Python tests.Unittests in test_until.py" />
+        <item itemvalue="Python.request" />
         <item itemvalue="Python.untils" />
         <item itemvalue="Python.test_spider (1)" />
-        <item itemvalue="Python tests.Unittests in /home/didi/repertory/mini_scrapy/test/test_from_setting.py" />
-        <item itemvalue="Python.test_spider" />
       </list>
     </recent_temporary>
   </component>
@@ -517,21 +511,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 16h 41m 12s.xml">
-      <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 16h 41m 53s.xml">
-      <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 16h 42m 00s.xml">
-      <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 16h 42m 57s.xml">
-      <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 16h 43m 52s.xml">
-      <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 16h 47m 04s.xml">
       <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
     </history-entry>
@@ -547,6 +526,21 @@
     <history-entry file="Unittests_in_test_from_setting_py - 2018.07.26 at 17h 31m 54s.xml">
       <configuration name="Unittests in test_from_setting.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_test_until_py - 2018.07.30 at 14h 40m 03s.xml">
+      <configuration name="Unittests in test_until.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_until_py - 2018.07.30 at 14h 40m 22s.xml">
+      <configuration name="Unittests in test_until.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_until_py - 2018.07.30 at 14h 40m 35s.xml">
+      <configuration name="Unittests in test_until.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_until_py - 2018.07.30 at 14h 41m 44s.xml">
+      <configuration name="Unittests in test_until.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_until_py - 2018.07.30 at 14h 41m 51s.xml">
+      <configuration name="Unittests in test_until.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1651" height="932" extended-state="6" />
@@ -555,17 +549,17 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24635923" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.13720642" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16474864" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16474864" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32946298" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3276699" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3275649" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4526699" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40420273" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -608,6 +602,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_mini_scrapy/test_spider.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -615,88 +616,17 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="22" />
+      <option name="time" value="25" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/learn/learn_geven.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bloom.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.5/inspect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/dict_learn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/dist-packages/gevent/_config.py" />
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/downloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/test_suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http_client/request.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py" />
+    <entry file="file://$PROJECT_DIR$/scheduler.py" />
+    <entry file="file://$PROJECT_DIR$/downloader.py" />
+    <entry file="file://$PROJECT_DIR$/core/crawler.py" />
+    <entry file="file://$PROJECT_DIR$/learn/test_suite.py" />
+    <entry file="file://$PROJECT_DIR$/http_client/request.py" />
     <entry file="file:///usr/lib/python3.5/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
@@ -704,211 +634,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/learn/learn_test.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/downloadermiddleware.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http_client/response.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_from_setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/test_mathfunc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/parse_url.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="43" column="43" lean-forward="true" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learn/mathfunc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/default_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/start_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/http_client/request.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/http_client/__init__.py">
+    <entry file="file://$PROJECT_DIR$/learn/learn_test.md" />
+    <entry file="file://$PROJECT_DIR$/core/spider.py" />
+    <entry file="file://$PROJECT_DIR$/downloadermiddleware.py" />
+    <entry file="file://$PROJECT_DIR$/http_client/response.py" />
+    <entry file="file://$PROJECT_DIR$/test/test_spider.py" />
+    <entry file="file://$PROJECT_DIR$/core/Engine.py" />
+    <entry file="file://$PROJECT_DIR$/test/test_from_setting.py" />
+    <entry file="file://$PROJECT_DIR$/learn/test_mathfunc.py" />
+    <entry file="file://$PROJECT_DIR$/learn/parse_url.py" />
+    <entry file="file://$PROJECT_DIR$/conf/settings.py" />
+    <entry file="file://$PROJECT_DIR$/learn/mathfunc.py" />
+    <entry file="file://$PROJECT_DIR$/conf/default_settings.py" />
+    <entry file="file://$PROJECT_DIR$/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/core/start_spider.py" />
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/http/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/lxml/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/http_client/response.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-134">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/learn/learn_test.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_from_setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/untils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_mini_scrapy/test_spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/downloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3/dist-packages/apport_python_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_mini_scrapy/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-          <folding>
-            <element signature="e#19#70#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -926,71 +675,209 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/crawler.py">
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/bloom.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="66">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        <state relative-caret-position="594">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadermiddleware.py">
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_from_setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/Markdown/learn_test.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="22">
+            <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mini_scrapy/untils/untils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+        <state relative-caret-position="880">
+          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/Engine.py">
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/Markdown/scrapy_load_object().md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="88">
+            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/venv/lib/python3.5/site-packages/pip-10.0.1-py3.5.egg/pip/_vendor/progress/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="84" column="8" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="8" />
+        <state relative-caret-position="204">
+          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/http/response.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-371">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/http/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/bloom.py">
+    <entry file="file://$PROJECT_DIR$/test_mini_scrapy/test_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="242">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/scheduler.py">
+    <entry file="file:///usr/lib/python3/dist-packages/apport_python_hook.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+        <state relative-caret-position="312">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/untils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_until.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloadermiddleware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/scheduler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/test/test_until.py">
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/dupefilters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="286">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/conf/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#19#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/core/crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="154">
+            <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

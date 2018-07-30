@@ -2,9 +2,9 @@ import time
 from threading import Thread
 from mini_scrapy.untils.untils import get_result_list
 import logging
-from mini_scrapy.scheduler import Scheduler
-from mini_scrapy.downloader import Downloader
-from mini_scrapy.http_client.request import Request
+from mini_scrapy.core.scheduler import Scheduler
+from mini_scrapy.downloadmiddleware.downloader import Downloader
+from mini_scrapy.http.request import Request
 
 
 class Engine(object):
@@ -12,16 +12,20 @@ class Engine(object):
     Engine
     """
 
-    def __init__(self, spider):
+    def __init__(self, crawler):
         """
         :param spider: spider obj
         """
-        self.spider = spider
-        self.scheduler = Scheduler()
-        self.downloader = Downloader(spider)
-        self.setting = spider.settings
-        self.max_request_size = self.setting['MAX_REQUEST_SIZE']
+        self.settings = crawler.settings
+        self.crawler = crawler
+        self.scheduler = Scheduler.from_crawler(self)
+        self._load_spider()
+        self.downloader = Downloader(self.crawler)
+        self.max_request_size = self.settings['MAX_REQUEST_SIZE']
         # self.pool = Pool(size=max_request_size)
+
+    def _load_spider(self):
+        self.spider = self.crawler.spider
 
     def start(self):
         start_requests = iter(self.spider.start_requests())

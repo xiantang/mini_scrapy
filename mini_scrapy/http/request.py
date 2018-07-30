@@ -1,3 +1,4 @@
+from pickle import dumps,loads
 class Request(object):
     """
     Request
@@ -20,6 +21,9 @@ class Request(object):
         cls = kwargs.pop('cls', self.__class__)
         return cls(*args, **kwargs)
 
+    def dumps(self):
+        return dumps(self)
+
     def __str__(self):
         return "<%s %s>" % (self.method, self.url)
 
@@ -29,3 +33,7 @@ if __name__ == '__main__':
     rq=Request("www.baidu.com")
     a=rq.copy()
     print(a.url)
+    dump_req = rq.dumps()
+    print(dump_req)
+    rq = loads(dump_req)
+    print(rq.callback)
