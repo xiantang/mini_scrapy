@@ -1,7 +1,7 @@
 import unittest
 
-from core.start_spider import init_spider
-from test_spider.test import TestSpider
+from mini_scrapy.core.start_spider import init_spider
+# from mini_scrapy.test_spider.test import TestSpider
 
 
 class TeseFunc(unittest.TestCase):

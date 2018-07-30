@@ -1,6 +1,6 @@
 from queue import Queue
 
-from mini_scrapy.utils import logger, request_fingerprint
+from mini_scrapy.untils.untils import logger, request_fingerprint
 from mini_scrapy.bloom import BloomFilter
 
 class Scheduler(object):

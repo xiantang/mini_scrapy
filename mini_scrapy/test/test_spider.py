@@ -1,7 +1,7 @@
 from gevent import monkey
 monkey.patch_all()
-from core.spider import Spider
-from http_client.request import Request
+from mini_scrapy.core.spider import Spider
+from mini_scrapy.http_client.request import Request
 
 class TestSpider(Spider):
 

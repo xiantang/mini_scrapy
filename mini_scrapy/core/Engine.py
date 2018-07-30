@@ -1,6 +1,6 @@
 import time
 from threading import Thread
-from mini_scrapy.utils import get_result_list
+from mini_scrapy.untils.untils import get_result_list
 import logging
 from mini_scrapy.scheduler import Scheduler
 from mini_scrapy.downloader import Downloader

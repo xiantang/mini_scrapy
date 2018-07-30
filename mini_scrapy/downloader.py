@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import requests
 
 from mini_scrapy.http_client.response import Response
-from mini_scrapy.utils import logger
+from mini_scrapy.untils.untils import logger
 from mini_scrapy.downloadermiddleware import DownloaderMiddlewareManager
 
 
@@ -36,7 +36,7 @@ class DownloadHandler(object):
         response = session.get(url,**kwargs)
         # print(len(response.text))
         r= Response(response.url, response.status_code,
-                        response.headers, response.content)
+                        response.headers, response.content,response.text)
 
         return r
 

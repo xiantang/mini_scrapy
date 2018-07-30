@@ -27,6 +27,7 @@ class Spider(object):
         spider.crawler = spider._set_crawler(crawler)
         return spider
 
+
     def _set_crawler(self,crawler):
         self.crawler = crawler
         self._load_settings()
