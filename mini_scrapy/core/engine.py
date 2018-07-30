@@ -1,9 +1,7 @@
 import time
 from threading import Thread
-from mini_scrapy.untils.untils import get_result_list
+from mini_scrapy.untils.untils import get_result_list, load_objects
 import logging
-from mini_scrapy.core.scheduler import Scheduler
-from mini_scrapy.downloadmiddleware.downloader import Downloader
 from mini_scrapy.http.request import Request
 
 
@@ -17,10 +15,13 @@ class Engine(object):
         :param spider: spider obj
         """
         self.settings = crawler.settings
+        #crawler 写死
         self.crawler = crawler
-        self.scheduler = Scheduler.from_crawler(self)
+        scheduler_cls = load_objects(self.settings['SCHEDULER_PATH'])
+        downloader_cls = load_objects(self.settings['DOWNLOADER_PATH'])
+        self.scheduler = scheduler_cls.from_crawler(self)
         self._load_spider()
-        self.downloader = Downloader(self.crawler)
+        self.downloader = downloader_cls(self.crawler)
         self.max_request_size = self.settings['MAX_REQUEST_SIZE']
         # self.pool = Pool(size=max_request_size)
 
@@ -135,6 +136,7 @@ class Engine(object):
         关闭爬虫
         :return:
         """
+        #TODO :完善关闭爬虫的措施
         time.sleep(2)
         while True:
             if self.scheduler.queue.empty():

@@ -1,5 +1,5 @@
+import re
 from lxml import etree
-
 
 class Response(object):
     """

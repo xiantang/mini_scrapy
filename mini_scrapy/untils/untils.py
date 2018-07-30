@@ -1,6 +1,7 @@
 import hashlib
 import inspect
 import logging
+from importlib import import_module
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse, urlsplit
 from mini_scrapy.http.response import Response
 
@@ -96,7 +97,28 @@ def url_join(response: Response, suburl: str) -> str:
     complete_url = pre_url + suburl
     return complete_url
 
+
+def load_objects(path):
+    try:
+        dot = path.rindex('.')
+        #找到最后一个 . 的位置 用来分离模块和路径
+
+    except ValueError as e :
+        raise ValueError("Error loading object '%s': not a full path" % path)
+    module, name = path[:dot], path[dot + 1:]
+    mod = import_module(module)
+    try:
+        obj = getattr(mod, name)
+    except AttributeError:
+        raise NameError("Module '%s' doesn't define any object named '%s'" % (module, name))
+
+    return obj
+
+
+
+
 if __name__ == '__main__':
 
-    r=Response("https://blog.csdn.net/u010255818/article/details/52740671")
-    print(url_join(r,"/w"))
+    # r=Response("https://blog.csdn.net/u010255818/article/details/52740671")
+    # print(url_join(r,"/w"))
+    print(load_objects("mini_scrapy.core.engine.Engine"))

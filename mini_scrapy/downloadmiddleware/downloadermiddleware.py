@@ -23,9 +23,11 @@ class DownloaderMiddlewareManager(object):
     def load_middleware(self):
         """
         加载middleware
+
         :return:
         """
         # FIXME:I don‘t know what globals().values() mean
+        # TODO:need to rewrite !
         middlewares = []
         for miw in iter_children_classes(
 

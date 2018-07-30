@@ -4,22 +4,21 @@ from mini_scrapy.http.request import Request
 from mini_scrapy.core.engine import Engine
 from mini_scrapy.conf.settings import Settings
 
+
 class Spider(object):
     """
     Base Spider
     """
-    name =None
+    name = None
     custom_setting = None
 
-    def __init__(self,name=None,**kwargs):
+    def __init__(self, name=None, **kwargs):
         """初始化爬虫"""
         if name is not None:
-            self.name=name
-        if not hasattr(self,"start_urls"):
+            self.name = name
+        if not hasattr(self, "start_urls"):
             self.start_urls = []
-            #初始化
-
-
+            # 初始化
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
@@ -27,8 +26,7 @@ class Spider(object):
         spider.crawler = spider._set_crawler(crawler)
         return spider
 
-
-    def _set_crawler(self,crawler):
+    def _set_crawler(self, crawler):
         self.crawler = crawler
         self._load_settings()
 
@@ -37,24 +35,15 @@ class Spider(object):
         load setings of custom_setting and settings.py
         :return:
         """
-        #TODO:load custom user defined in spider.
+        # TODO:load custom user defined in spider.
         self.settings = self.crawler.settings
-
 
     def start_requests(self):
         for url in self.start_urls:
             yield Request(url)
 
-    # def start(self):
-    #     engine = Engine(self)
-    #     engine.start()
-
-    def parse(self,response):
+    def parse(self, response):
         raise NotImplementedError
 
-    def process_item(self,item):
+    def process_item(self, item):
         pass
-
-if __name__ == '__main__':
-    s = Spider()
-    s.start()

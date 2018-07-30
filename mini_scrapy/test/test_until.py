@@ -1,7 +1,8 @@
 import re
 import unittest
 from unittest import TestCase
-
+from scrapy.utils.misc import load_object
+from mini_scrapy.core.engine import Engine
 from mini_scrapy.http.response import Response
 from mini_scrapy.untils import url_join
 
@@ -34,6 +35,13 @@ class TeseFunc(TestCase):
         com_url = url_join(r,sub_url)
 
         self.assertTrue(self.is_url(com_url))
+
+
+    def test_load_object(self):
+        path = "mini_scrapy.core.engine.Engine"
+        cls = load_object(path)
+
+        self.assertTrue(Engine is cls)
 
 if __name__ == '__main__':
     unittest.main()

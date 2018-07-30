@@ -1,26 +1,25 @@
 from queue import Queue
-
-from mini_scrapy.dupefilters import RFPDupeFilter
-from mini_scrapy.untils.untils import logger
+from mini_scrapy.untils.untils import logger, load_objects
 
 
 class Scheduler(object):
     """ Scheduler """
 
-    def __init__(self,settings,filter,queue,):
+    def __init__(self, crawler, settings, filter):
         # self.request_filter = RFPDupeFilter()
         # self.queue = Queue()
+        # TODO:自己造一个queue的轮子
         self.settings = settings
         self.request_filter = filter
-        self.queue = queue
+        self.queue = Queue()
+        self.crawler = crawler
 
     @classmethod
     def from_crawler(cls, crawler):
         settings = crawler.settings
-        request_filter = RFPDupeFilter()
-        queue = Queue()
-        return cls(settings,request_filter,queue)
-
+        filter_cls = load_objects(settings['DUPEFILTER'])
+        request_filter = filter_cls.from_crawler(crawler)
+        return cls(crawler, settings, request_filter)
 
     def enqueue_request(self, request):
         """put request
