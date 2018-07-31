@@ -1,6 +1,8 @@
+import sys
 import time
-from threading import Thread
-from mini_scrapy.untils.untils import get_result_list, load_objects
+import traceback
+from threading import Thread, Event
+from mini_scrapy.untils.untils import get_result_list, load_objects, logger
 import logging
 from mini_scrapy.http.request import Request
 
@@ -15,7 +17,7 @@ class Engine(object):
         :param spider: spider obj
         """
         self.settings = crawler.settings
-        #crawler 写死
+        # crawler 写死
         self.crawler = crawler
         scheduler_cls = load_objects(self.settings['SCHEDULER_PATH'])
         downloader_cls = load_objects(self.settings['DOWNLOADER_PATH'])
@@ -23,6 +25,7 @@ class Engine(object):
         self._load_spider()
         self.downloader = downloader_cls(self.crawler)
         self.max_request_size = self.settings['MAX_REQUEST_SIZE']
+        self.running = True
         # self.pool = Pool(size=max_request_size)
 
     def _load_spider(self):
@@ -34,53 +37,71 @@ class Engine(object):
 
     def execute(self, spider, start_requests):
         self.start_requests = start_requests
-        # TODO 完善线程池
+
         all_routines = []
-        t_init = Thread(target=self._init_start_requests, daemon=True)
+        # daemon
+        start_evt = Event()
+        close_evt = Event()
+
+        # 使主线程等待
+        t_init = Thread(target=self._init_start_requests, args=(start_evt,))
 
         all_routines.append(t_init)
+
         for i in range(self.max_request_size):
-            all_routines.append(Thread(target=self._next_request, args=(spider,), daemon=True))
+            all_routines.append(Thread(target=self._next_request, args=(spider, close_evt)))
 
         for t in all_routines:
             t.start()
 
-        self.close_spider()
+        self.close_spider(start_evt, close_evt)
 
-    def _init_start_requests(self):
+    def _init_start_requests(self, start_evt):
         """
         init start requests
         :return:
         """
+        logger.info("start crawling !")
         for req in self.start_requests:
             # print(req)
             self.crawl(req)
+        time.sleep(1)
+        start_evt.set()
 
-    def _next_request(self, spider):
-        while 1:
+    def _next_request(self, spider, close_evt):
+        while not close_evt.is_set():
             request = self.scheduler.next_request()
             # 从调度器中取出request对象
             if not request:
                 time.sleep(0.2)
                 continue
-
             # 拿出来下载
 
             self._process_request(request, spider)
 
     def _process_request(self, request, spider):
+        #TOdo REPLACE
         try:
             response = self.download(request, spider)
         except Exception as exc:
-            logging.error("download error: %s", str(exc), exc_info=True)
+
+            logger.error("download error: %s", str(exc), exc_info=True)
         else:
-            # 判断是不是request对象如果是就重新压入队列
+            #判断是不是request对象如果是就重新压入队列
             self._handle_downloader_output(response, request, spider)
             return response
 
     def download(self, request, spider):
+        """
+        把requests的meta传入download
+        :param request:
+        :param spider:
+        :return:
+        """
         response = self.downloader.fetch(request, spider)
+
         response.request = request
+        response.meta = request.meta
         return response
 
     def crawl(self, request):
@@ -99,14 +120,22 @@ class Engine(object):
 
     def process_response(self, response, request, spider):
         """
-
+        exec call back func
         :param response:
         :param request:
         :param spider:
         :return:
         """
+        #FIXME:集中处理异常
         callback = request.callback or spider.parse
-        result = callback(response)
+        try:
+            result = callback(response)
+        except Exception as e:
+            traceback_full=''.join(traceback.format_exception(*sys.exc_info()))
+            logger.error(traceback_full)
+            logger.error(e)
+            result=[]
+        #可能会导致阻塞
         ret = get_result_list(result)
         self.handle_spider_output(ret, spider)
         # 去遍历result
@@ -126,20 +155,28 @@ class Engine(object):
             elif isinstance(item, dict):
                 self.process_item(item, spider)
             else:
-                logging.error("Spider must retrun Request, dict or None")
+                logger.error("Spider must retrun Request, dict or None")
 
     def process_item(self, item, spider):
         spider.process_item(item)
 
-    def close_spider(self):
+    def close_spider(self, start_evt, close_evt):
         """
         关闭爬虫
+        对爬虫队列不断检查
+        我的思路是如果为空的话往队列里面放入flag 通过这个flag关闭线程
         :return:
         """
-        #TODO :完善关闭爬虫的措施
-        time.sleep(2)
-        while True:
-            if self.scheduler.queue.empty():
-                logging.info("spider is over")
-                break
+
+        # time.sleep(2)
+        start_evt.wait()
+        # wait 直到他set()
+        while self.running:
+            time.sleep(.1)
+            if len(self.scheduler) == 0:
+                close_evt.set()
+                self.running = False
+        logger.info("close spider !")
+
+        
 

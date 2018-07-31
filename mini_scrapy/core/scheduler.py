@@ -41,5 +41,11 @@ class Scheduler(object):
         self.queue.task_done()
         return next_request
 
+    def is_empty(self):
+        """
+        判断是否为空
+        :return:
+        """
+
     def __len__(self):
         return self.queue.qsize()

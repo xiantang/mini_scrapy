@@ -3,6 +3,9 @@ import inspect
 import logging
 from importlib import import_module
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse, urlsplit
+
+import requests
+
 from mini_scrapy.http.response import Response
 
 
@@ -60,13 +63,18 @@ def call_func(func, errback=None, callback=None, *args, **kwargs):
     :param kwargs:
     :return:
     """
+    #TODO:ERRBACK 请求时间过长
+    #FIXME:how to deal this to return
     try:
         result = func(*args, **kwargs)
 
     except Exception as exc:
-        # 异常回调函数
+    #     # 异常回调函数
+        logger.error(exc, exc_info=True)
+
         if errback:
             errback(exc)
+
     else:
         if callback:
             result = callback(result)

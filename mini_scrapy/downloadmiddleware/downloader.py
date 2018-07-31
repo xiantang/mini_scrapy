@@ -34,9 +34,12 @@ class DownloadHandler(object):
         session = self._get_session(url)
         logger.info("processing %s", url)
         response = session.get(url,**kwargs)
+
         # print(len(response.text))
         r= Response(response.url, response.status_code,
                         response.headers, response.content,response.text)
+
+
 
         return r
 
@@ -53,11 +56,13 @@ class Downloader(object):
 
     def fetch(self,request,spider):
         resp=self.middleware.download(self._download, request)
-        # print(resp)
         return resp
 
     def _download(self,request):
         resp = self.hanlder.fetch(request)
+        # if resp is None:
+        #     print(1)
         # print(resp)
+
         return resp
 

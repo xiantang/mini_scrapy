@@ -58,6 +58,9 @@ class DownloaderMiddlewareManager(object):
             for method in self.methods['process_request']:
                 method(request)
             response = download_func(request)
+            # if response is None:
+            #     print(1)
+            #     print(1)
 
             return response
 
@@ -79,8 +82,10 @@ class DownloaderMiddlewareManager(object):
             return exception
 
         # print(self.methods)
-        return call_func(process_request, process_exception,
-                         process_response, request)
+        resp = call_func(process_request, process_exception,
+                  process_response, request)
+
+        return resp
 
 
 class RetryMiddleware(DownloaderMiddleware):

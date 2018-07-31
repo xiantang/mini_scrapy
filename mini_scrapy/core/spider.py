@@ -1,8 +1,7 @@
 """Base Spider"""
 
 from mini_scrapy.http.request import Request
-from mini_scrapy.core.engine import Engine
-from mini_scrapy.conf.settings import Settings
+
 
 
 class Spider(object):
