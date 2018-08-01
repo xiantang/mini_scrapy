@@ -1,10 +1,12 @@
 """ costom config settings """
-#所有的配置都必须为大写
+# 所有的配置都必须为大写
 
 
 # RETRY_COUNT = 3
 
 # RETRY_STATUS_CODES = [500, 502, 503, 504, 400, 403, 408]
+
+COOKIE_ENABLE = False
 
 # TIMEOUT = 10
 
@@ -29,7 +31,7 @@ BLOOMFILTER_SIZE = 10000000
 #
 BLOOMFILTER_HASH_COUNT = 10
 
-MYSQL_HOST='192.168.0.210'
-MYSQL_DBNAME='db_nosebox'
-MYSQL_USER='kettle'
-MYSQL_PASSWORD='root'
+MYSQL_HOST = '192.168.0.210'
+MYSQL_DBNAME = 'db_nosebox'
+MYSQL_USER = 'kettle'
+MYSQL_PASSWORD = 'root'

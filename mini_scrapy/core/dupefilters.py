@@ -62,13 +62,16 @@ class RFPDupeFilter(object):
 
     def request_seen(self, request):
         """
+        如果request是设置过避免过滤的 那就返回False
         request seen
         :param requests:
         :return:
         """
 
         finger = request_fingerprint(request)
-        if finger in self.sbf:
+        if request.dont_filter == True:
+            return False
+        elif finger in self.sbf:
             return True
         self.sbf.add(finger)
         return False

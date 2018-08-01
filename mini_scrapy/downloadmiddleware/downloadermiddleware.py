@@ -29,10 +29,8 @@ class DownloaderMiddlewareManager(object):
         # FIXME:I don‘t know what globals().values() mean
         # TODO:need to rewrite !
         middlewares = []
-        for miw in iter_children_classes(
-
-                globals().values(), DownloaderMiddleware
-        ):
+        # print(globals())
+        for miw in iter_children_classes(globals().values(), DownloaderMiddleware):
             middlewares.append(miw(self.settings))
         return middlewares
 

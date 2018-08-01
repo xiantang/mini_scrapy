@@ -1,9 +1,9 @@
-import sys
+
 import time
-import traceback
+
 from threading import Thread, Event
+from mini_scrapy.exception import NotFindResponseError
 from mini_scrapy.untils.untils import get_result_list, load_objects, logger
-import logging
 from mini_scrapy.http.request import Request
 
 
@@ -80,12 +80,14 @@ class Engine(object):
             self._process_request(request, spider)
 
     def _process_request(self, request, spider):
-        #TOdo REPLACE
+
         try:
             response = self.download(request, spider)
-        except Exception as exc:
-
-            logger.error("download error: %s", str(exc), exc_info=True)
+        except AttributeError as exc:
+            logger.error("AttributeError: %s", str(exc), exc_info=True)
+            logger.warning("find a error,post to error back.")
+        except Exception as  exc:
+            logger.error("AttributeError: %s", str(exc), exc_info=True)
         else:
             #判断是不是request对象如果是就重新压入队列
             self._handle_downloader_output(response, request, spider)
@@ -94,11 +96,15 @@ class Engine(object):
     def download(self, request, spider):
         """
         把requests的meta传入download
+
         :param request:
         :param spider:
         :return:
         """
+
         response = self.downloader.fetch(request, spider)
+        if response is None:
+            raise NotFindResponseError("not find response, maybe your downloader did't complete download")
 
         response.request = request
         response.meta = request.meta
@@ -130,11 +136,12 @@ class Engine(object):
         callback = request.callback or spider.parse
         try:
             result = callback(response)
-        except Exception as e:
-            traceback_full=''.join(traceback.format_exception(*sys.exc_info()))
-            logger.error(traceback_full)
-            logger.error(e)
+        except NotFindResponseError as e:
+            # traceback_full=''.join(traceback.format_exception(*sys.exc_info()))
+            # logger.error(traceback_full)
+            # logger.error(e)
             result=[]
+            logger.error("NotFindResponseError: %s", str(e), exc_info=True)
         #可能会导致阻塞
         ret = get_result_list(result)
         self.handle_spider_output(ret, spider)

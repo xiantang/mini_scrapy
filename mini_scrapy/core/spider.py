@@ -9,7 +9,7 @@ class Spider(object):
     Base Spider
     """
     name = None
-    custom_setting = None
+    custom_setting = {}
 
     def __init__(self, name=None, **kwargs):
         """初始化爬虫"""
@@ -34,9 +34,9 @@ class Spider(object):
         load setings of custom_setting and settings.py
         :return:
         """
-        # TODO:load custom user defined in spider.
-        self.settings = self.crawler.settings
 
+        self.settings = self.crawler.settings
+        self.settings.set_dict(self.custom_setting)
     def start_requests(self):
         for url in self.start_urls:
             yield Request(url)

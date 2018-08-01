@@ -4,7 +4,6 @@ import logging
 from importlib import import_module
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse, urlsplit
 
-import requests
 
 from mini_scrapy.http.response import Response
 
@@ -19,7 +18,7 @@ def get_logger(name):
     default_logger.addHandler(stream)
     return default_logger
 
-
+#单例
 logger = get_logger("myLogger")
 
 
@@ -63,8 +62,7 @@ def call_func(func, errback=None, callback=None, *args, **kwargs):
     :param kwargs:
     :return:
     """
-    #TODO:ERRBACK 请求时间过长
-    #FIXME:how to deal this to return
+    #我的做法是在这里不处理 上级raise异常
     try:
         result = func(*args, **kwargs)
 

@@ -18,12 +18,12 @@ class Attribute(object):
 
 class Settings(object):
 
-    def __init__(self, value=None):
+    def __init__(self,):
         self.attrs = {}
         self.load_config(default_settings)
         # 加载默认setting
-        if value is not None:
-            self.set_dict(value)
+        # if value is not None:
+        #     self.set_dict(value)
 
     def __getitem__(self, key):
 
@@ -43,7 +43,7 @@ class Settings(object):
 
     def set_dict(self, values):
         # set 到自己的attrs中
-        for key, value in values.iteritems():
+        for key, value in values.items():
             self.set(key, value)
 
     def get(self, key, default=None):

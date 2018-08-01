@@ -12,10 +12,10 @@ DEFAULT_HEADERS = {
     'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
 }
 
-# PROXY_ENABLED = False
 
 MAX_REQUEST_SIZE = 10
 
+COOKIE_ENABLE = True
 
 PROXY_INTERVAL = 5
 

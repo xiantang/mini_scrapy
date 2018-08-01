@@ -4,7 +4,7 @@ import traceback
 from threading import Thread
 
 
-
+#暂时作废
 class CrawlThread(Thread):
     def __init__(self,thread_id,callback,*args):
         threading.Thread.__init__(self,*args)
