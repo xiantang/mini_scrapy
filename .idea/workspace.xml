@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4344e082-8d85-4ee3-92c0-ac6b03235a30" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/crawler/middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawler/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/conf/default_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/conf/default_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/core/dupefilters.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/dupefilters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloadermiddleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloadermiddleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/http/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/http/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -145,6 +139,18 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="66">
+                    <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/crawler/settings.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -163,7 +169,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mini_scrapy/conf/settings.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-474">
@@ -264,7 +270,6 @@
         <option value="$PROJECT_DIR$/mini_scrapy/learn/scrapy_load_object().md" />
         <option value="$PROJECT_DIR$/mini_scrapy/core/crawler.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/README.md" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/mini_scrapy/test/test_until.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/core/start_spider.py" />
         <option value="$PROJECT_DIR$/test_mini_scrapy/settings.py" />
@@ -299,6 +304,7 @@
         <option value="$PROJECT_DIR$/crawler/middleware.py" />
         <option value="$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py" />
         <option value="$PROJECT_DIR$/crawler/settings.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -362,6 +368,12 @@
               <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
               <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
               <item name="http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mini_scrapy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="mini_scrapy" type="462c0819:PsiDirectoryNode" />
+              <item name="Markdown" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -557,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533190359309</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add download middleware  and fixed a bug with prepare_request()">
+      <created>1533204389315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1533204389315</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -610,9 +629,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32951653" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.3167939" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5968847" visible="true" weight="0.40966922" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5968847" visible="true" weight="0.40966922" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32951653" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1833795" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1833795" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32946298" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32709113" />
@@ -662,7 +681,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add 'from_setting' to my spider" />
     <MESSAGE value="fix a bug of meta and use LIFO queue instead  of FIFO queue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix a bug of meta and use LIFO queue instead  of FIFO queue" />
+    <MESSAGE value="add download middleware  and fixed a bug with prepare_request()" />
+    <option name="LAST_COMMIT_MESSAGE" value="add download middleware  and fixed a bug with prepare_request()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -899,14 +919,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mini_scrapy/http/request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1011,16 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mini_scrapy/core/dupefilters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-638">
@@ -1035,6 +1037,26 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mini_scrapy/downloadmiddleware/downloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="66">
+            <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
