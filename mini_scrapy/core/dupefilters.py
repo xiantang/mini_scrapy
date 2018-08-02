@@ -71,7 +71,7 @@ class RFPDupeFilter(object):
         finger = request_fingerprint(request)
 
         if request.dont_filter == True or request.meta['retry_count']>0:
-            print("11111")
+            # print("11111")
 
             return False
         elif finger in self.sbf:

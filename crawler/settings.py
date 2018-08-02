@@ -35,3 +35,10 @@ MYSQL_HOST = '192.168.0.210'
 MYSQL_DBNAME = 'db_nosebox'
 MYSQL_USER = 'kettle'
 MYSQL_PASSWORD = 'root'
+
+
+DOWNLOAD_MIDDLEWARE = {
+    "mini_scrapy.downloadmiddleware.downloadermiddleware.RetryMiddleware":1,
+    "crawler.middleware.RandomHead":2
+
+}

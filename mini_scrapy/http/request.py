@@ -1,4 +1,8 @@
 from pickle import dumps,loads
+
+from mini_scrapy.conf import default_settings
+
+
 class Request(object):
     """
     Request
@@ -10,7 +14,7 @@ class Request(object):
         self.data = data
         self.method = method
         self.callback = callback
-        self.headers = headers or {}
+        self.headers = headers or default_settings.DEFAULT_HEADERS
 
         self.dont_filter = dont_filter #不过滤
         self.meta = self._load_meta(meta)
@@ -39,7 +43,8 @@ class Request(object):
 
         meta = {"proxy":None,
                 "download_timeout":None,
-                "retry_count":0}
+                "retry_count":0,
+                "timeout":default_settings.TIMEOUT}
         if isinstance(coustom_meta,dict):
             meta.update(coustom_meta)
         return meta

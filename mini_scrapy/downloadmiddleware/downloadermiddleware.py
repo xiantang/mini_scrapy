@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+from scrapy.utils.misc import load_object
+
 from mini_scrapy.http.request import Request
 from mini_scrapy.untils.untils import iter_children_classes, call_func
 
@@ -7,20 +9,42 @@ from mini_scrapy.untils.untils import iter_children_classes, call_func
 class DownloaderMiddleware(object):
     """ DownloaderMiddleware iterface """
 
-    pass
+    def __init__(self,spider,crawler,**kwargs):
+        self.spider = spider
+        self.cralwer = crawler
 
+    @classmethod
+    def from_crawler(cls, spider, crawler, **kwargs):
+        cls(spider,crawler,**kwargs)
+
+    def process_request(self,request):
+        return  request
+
+    def process_response(self,request,response):
+        return  response
+
+    def process_exception(self,request,exception):
+        return exception
 
 class DownloaderMiddlewareManager(object):
 
-    def __init__(self, spider):
-        self.settings = spider.settings
+    def __init__(self, spider,crawler,settings):
+        self.settings = settings
         self.methods = defaultdict(list)
+        self.spider = spider
+        self.crawler = crawler
         # 创建一个默认值为[]的字典
-        self.middlewares = self.load_middleware()
+        self.middlewares = self._load_middleware()
         for miw in self.middlewares:
             self._add_middleware(miw)
 
-    def load_middleware(self):
+    @classmethod
+    def from_crawler(cls,spider,crawler,**kwargs):
+        settings = crawler.settings
+        return  cls(spider,crawler,settings)
+
+
+    def _load_middleware(self):
         """
         加载middleware
 
@@ -28,12 +52,23 @@ class DownloaderMiddlewareManager(object):
         """
         # FIXME:重写 从settings 中加载中间件
         # TODO:need to rewrite !
+        # middlewares = []
+        # # print(globals())
+        # for miw in iter_children_classes(globals().values(), DownloaderMiddleware):
+        #     middlewares.append(miw(self.settings))
+        # return middlewares
         middlewares = []
-        # print(globals())
-        for miw in iter_children_classes(globals().values(), DownloaderMiddleware):
-            middlewares.append(miw(self.settings))
-        return middlewares
+        middlewares_dict = self.settings["DOWNLOAD_MIDDLEWARE"]
+        for middleware_key,value in middlewares_dict.items():
 
+            middleware = load_object(middleware_key)
+            if hasattr(middleware,"from_crawler"):
+                middleware_instance = middleware.from_crawler(self.spider,self.crawler)
+                middlewares.append(middleware_instance)
+            else:
+                middleware_instance = middleware()
+                middlewares.append(middleware_instance)
+        return middlewares
     def _add_middleware(self, miw):
         if hasattr(miw, "process_request"):
             self.methods['process_request'].append(miw.process_request)
@@ -89,9 +124,16 @@ class DownloaderMiddlewareManager(object):
 class RetryMiddleware(DownloaderMiddleware):
     RETRY_EXCEPTIONS = ()
 
-    def __init__(self, settings):
+    def __init__(self, spider,crawler,settings):
+        super().__init__(spider,crawler)
         self.max_retry_count = settings.get_int("RETRY_COUNT")
         self.retry_status_codes = settings.get_list("RETRY_STATUS_CODES")
+
+    @classmethod
+    def from_crawler(cls,spider,crawler,**kwargs):
+        settings = crawler.settings
+        return cls(spider,crawler,settings)
+
 
     def process_response(self, request, response):
         """process respoonse

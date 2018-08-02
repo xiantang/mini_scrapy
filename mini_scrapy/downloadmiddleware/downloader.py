@@ -3,6 +3,7 @@ from urllib.parse import urlparse
 
 import requests
 from requests import Request
+from scrapy.utils.misc import load_object
 
 from mini_scrapy.http.response import Response
 from mini_scrapy.untils.untils import logger
@@ -11,7 +12,7 @@ from mini_scrapy.downloadmiddleware.downloadermiddleware import DownloaderMiddle
 
 class DownloadHandler(object):
 
-    def __init__(self, spider, keep_alive=True, **kwargs):
+    def __init__(self, spider,crawler,settings,keep_alive,**kwargs):
         """
         如果要禁止COOKIE的话
         直接把keep_alive 设置为False
@@ -20,9 +21,16 @@ class DownloadHandler(object):
         :param kwargs:
         """
         self.keep_alieve = keep_alive
-        self.settings = spider.settings
+        self.spider = spider
+        self.crawler = crawler
+        self.settings = settings
         self.session_map = {}
         self.kwargs = kwargs
+
+    @classmethod
+    def from_crawler(cls,spider,crawler,keep_alive,**kwargs):
+        settings = crawler.settings
+        return  cls(spider,crawler,settings,keep_alive,**kwargs)
 
     def _get_session(self, url):
         netloc = urlparse(url).netloc
@@ -42,27 +50,41 @@ class DownloadHandler(object):
         #     "proxies":
         # }
         timeout = self.settings["TIMEOUT"]
-        header = self.settings['USER_AGENT']
-        request.headers.update(header)
-        req = Request(
-            method=request.method,
-            url=request.url,
-            data=request.data,
-            headers=request.headers
-        )
+
+        # request.headers.update(header)
+
+        # req = Request(
+        #     method=request.method,
+        #     url=request.url,
+        #     data=request.data,
+        #     headers=request.headers
+        # )
+        # print(request.headers)
         url = request.url
         meta = request.meta
         # pre = self._get_session(url)
-
+        #
         session = self._get_session(url)
-        prepped = session.prepare_request(req)
-        # logger.info("processing %s", url)
-        response = session.send(prepped,
-                                proxies=meta.get('proxy'),
-                                timeout=timeout if meta.get("download_timeout") else timeout
-                                )
+
+        if request.method == 'POST':
+            response = session.post(url, data=request.data,
+                                   headers=request.headers,
+                                   proxies=meta.get('proxy'),
+                                   timeout=timeout)
+        else:
+            response = session.get(url, data=request.data,
+                                    headers=request.headers,
+                                    proxies=meta.get('proxy'),
+                                    timeout=timeout)
+        # prepped = session.prepare_request(req)
+        # # logger.info("processing %s", url)
+        # response = session.send(prepped,
+        #                         proxies=meta.get('proxy'),
+        #                         timeout=timeout
+        #                                 )
 
         # print(len(response.text))
+        # print(response.text)
         r = Response(response.url, response.status_code,
                      response.headers, response.content, response.text)
 
@@ -75,11 +97,13 @@ class Downloader(object):
     def __init__(self, crawler):
         spider = crawler.spider
         self.hanlder = self._load_hanlder(crawler,spider)
-        self.middleware = DownloaderMiddlewareManager(spider)
+        self.middleware = DownloaderMiddlewareManager.from_crawler(spider,crawler)
 
     def _load_hanlder(self,crawler,spider):
         is_keep_live= crawler.settings['COOKIE_ENABLE']
-        hanlder=DownloadHandler(spider=spider,keep_alive=is_keep_live)
+        # hanlder=DownloadHandler(spider=spider,keep_alive=is_keep_live)
+        hanlder_cls = crawler.settings['DOWNLOADHANDLER_PATH']
+        hanlder = load_object(hanlder_cls).from_crawler(spider,crawler,is_keep_live)
         return hanlder
 
     def fetch(self, request, spider):
