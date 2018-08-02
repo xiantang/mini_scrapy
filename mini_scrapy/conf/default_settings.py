@@ -4,7 +4,7 @@ RETRY_COUNT = 3
 
 RETRY_STATUS_CODES = [500, 502, 503, 504, 400, 403, 408]
 
-TIMEOUT = 10
+TIMEOUT = 30
 
 DEFAULT_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;'
@@ -13,7 +13,7 @@ DEFAULT_HEADERS = {
 }
 
 
-MAX_REQUEST_SIZE = 10
+MAX_REQUEST_SIZE = 20
 
 COOKIE_ENABLE = True
 
@@ -29,3 +29,6 @@ BLOOMFILTER_SIZE = 10000
 
 BLOOMFILTER_HASH_COUNT = 10
 
+USER_AGENT = {
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+}

@@ -11,10 +11,10 @@ class Request(object):
         self.method = method
         self.callback = callback
         self.headers = headers or {}
-        #TODO:不过滤写一下
+
         self.dont_filter = dont_filter #不过滤
-        self.meta = self._load_meta()
-        self.meta.update(meta)
+        self.meta = self._load_meta(meta)
+
 
     def copy(self, *args, **kwargs):
         for key in ['url', 'method', 'callback', 'headers', 'dont_filter',
@@ -30,13 +30,18 @@ class Request(object):
     def loads(self):
         return loads(self)
 
-    def _load_meta(self):
+    def _load_meta(self,coustom_meta):
         """
         这里就给出两个特殊键
         一个是proxy一个是timeout
         :return:
         """
-        meta = {"proxy":None,"download_timeout":None}
+
+        meta = {"proxy":None,
+                "download_timeout":None,
+                "retry_count":0}
+        if isinstance(coustom_meta,dict):
+            meta.update(coustom_meta)
         return meta
 
 

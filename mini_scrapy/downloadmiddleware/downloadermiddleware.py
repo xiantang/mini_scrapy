@@ -26,7 +26,7 @@ class DownloaderMiddlewareManager(object):
 
         :return:
         """
-        # FIXME:I don‘t know what globals().values() mean
+        # FIXME:重写 从settings 中加载中间件
         # TODO:need to rewrite !
         middlewares = []
         # print(globals())
@@ -64,7 +64,7 @@ class DownloaderMiddlewareManager(object):
 
         def process_response(response):
 
-            for method in self.methods['prcess_response']:
+            for method in self.methods['process_response']:
 
                 response = method(request, response)
                 if isinstance(response, Request):
@@ -93,14 +93,14 @@ class RetryMiddleware(DownloaderMiddleware):
         self.max_retry_count = settings.get_int("RETRY_COUNT")
         self.retry_status_codes = settings.get_list("RETRY_STATUS_CODES")
 
-    def process_response(self, request, respoonse):
+    def process_response(self, request, response):
         """process respoonse
         """
         if request.meta.get("dont_retry", False):
-            return respoonse
-        if respoonse.status in self.retry_status_codes:
-            return self._retry(request) or respoonse
-        return respoonse
+            return response
+        if response.status in self.retry_status_codes:
+            return self._retry(request) or response
+        return response
 
     def process_exception(self, request, exception):
         """process exception

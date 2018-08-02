@@ -1,3 +1,11 @@
+"""
+# @File  : review_spider.py
+# @Author: xiantang
+# @Date  : 01/08/18
+# @Email :zhujingdi1998@gmail.com
+# blog : zhanshengpipidi.cn/blog
+# Github : github.com/xiantang
+"""
 import re
 from lxml import etree
 
@@ -10,13 +18,13 @@ from mini_scrapy.untils import url_join
 from mini_scrapy.untils.untils import logger
 
 
-class TimeSpider(Spider):
+class ReviewSpider(Spider):
 
     name = "TestSpider"
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
-        spider = super(TimeSpider, cls).from_crawler(crawler, *args, **kwargs)
+        spider = super(ReviewSpider, cls).from_crawler(crawler, *args, **kwargs)
         host = crawler.settings['MYSQL_HOST']
         db=crawler.settings['MYSQL_DBNAME']
         user=crawler.settings['MYSQL_USER']
@@ -28,7 +36,7 @@ class TimeSpider(Spider):
     def start_requests(self):
         cur = self.conn.cursor()
         cur.execute("""select itemid from raw_item_d
-                      limit 1,100 """)
+                        """)
         fc = cur.fetchall()
         for i in fc:
             start_url = "https://www.nosetime.com/xiangshui/"+str(i[0])
@@ -46,22 +54,11 @@ class TimeSpider(Spider):
             selector = etree.HTML(perfumer_html)
             perfumers = ','.join(selector.xpath('//a/text()'))
 
-            host = settings.MYSQL_HOST
-            db = settings.MYSQL_DBNAME
-            user = settings.MYSQL_USER
-            password = settings.MYSQL_PASSWORD
-            conn = pymysql.connect(host=host, db=db, user=user, password=password)
-            sql = """
-            update
-            raw_item_d
-            set
-            perfumers = '%s'
-            where
-            itemid = '%s'
-            """%(perfumers,response.meta['item_id'])
-            try:
-                conn.cursor().execute(sql)
-                conn.commit()
-                logger.info("insert OK!"+str(perfumers))
-            except Exception as e:
-                logger.error("Error: %s", str(e), exc_info=True)
+            brand = response.xpath("//ul[@class='item_info']/li/a[1]/@href")[0]
+            url = url_join(response,brand)
+
+            yield Request(url=url,callback=self.brand)
+
+    def brand(self,response):
+        # print(len(response.text))
+        pass

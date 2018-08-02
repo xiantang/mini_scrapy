@@ -1,3 +1,4 @@
+from heapq import heappush
 from urllib.parse import urlparse
 
 import requests
@@ -41,6 +42,8 @@ class DownloadHandler(object):
         #     "proxies":
         # }
         timeout = self.settings["TIMEOUT"]
+        header = self.settings['USER_AGENT']
+        request.headers.update(header)
         req = Request(
             method=request.method,
             url=request.url,
@@ -53,7 +56,7 @@ class DownloadHandler(object):
 
         session = self._get_session(url)
         prepped = session.prepare_request(req)
-        logger.info("processing %s", url)
+        # logger.info("processing %s", url)
         response = session.send(prepped,
                                 proxies=meta.get('proxy'),
                                 timeout=timeout if meta.get("download_timeout") else timeout
@@ -63,6 +66,7 @@ class DownloadHandler(object):
         r = Response(response.url, response.status_code,
                      response.headers, response.content, response.text)
 
+        logger.info("Downloaded ({status}) {request}".format(request=str(request),status = r.status))
         return r
 
 

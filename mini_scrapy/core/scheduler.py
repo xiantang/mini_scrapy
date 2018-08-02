@@ -1,4 +1,4 @@
-from queue import Queue
+from queue import LifoQueue
 from mini_scrapy.untils.untils import logger, load_objects
 
 
@@ -11,7 +11,7 @@ class Scheduler(object):
         # TODO:自己造一个queue的轮子
         self.settings = settings
         self.request_filter = filter
-        self.queue = Queue()
+        self.queue = LifoQueue()
         self.crawler = crawler
 
     @classmethod
@@ -23,12 +23,16 @@ class Scheduler(object):
 
     def enqueue_request(self, request):
         """put request
+        如果没有不过滤 /request_seen 看到了就过滤
         """
-        if not request.dont_filter \
+        if request.meta["retry_count"] >0:
+            self.queue.put(request)
+        elif not request.dont_filter \
                 and self.request_filter.request_seen(request):
             logger.warn("ignore %s", request.url)
             return
-        self.queue.put(request)
+        else:
+            self.queue.put(request)
 
     def next_request(self):
         """

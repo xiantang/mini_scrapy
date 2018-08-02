@@ -105,7 +105,10 @@ class Engine(object):
         response = self.downloader.fetch(request, spider)
         if response is None:
             raise NotFindResponseError("not find response, maybe your downloader did't complete download")
+        #这里直接判断类型 避免之后的meta重置
+        if isinstance(response,Request):
 
+            return response
         response.request = request
         response.meta = request.meta
         return response
