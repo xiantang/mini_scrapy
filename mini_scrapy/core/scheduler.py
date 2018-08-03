@@ -16,13 +16,17 @@ class Scheduler(object):
         self.settings = settings
         self.request_filter = filter
         self.request_queue = LifoQueue()
+        # self.loacal_request_queue =
         self.crawler = crawler
+
         self.item_queue = Queue()
 
     @classmethod
     def from_crawler(cls, crawler):
         settings = crawler.settings
         filter_cls = load_objects(settings['DUPEFILTER'])
+
+
         request_filter = filter_cls.from_crawler(crawler)
         return cls(crawler, settings, request_filter)
 

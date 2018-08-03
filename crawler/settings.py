@@ -17,7 +17,7 @@ COOKIE_ENABLE = False
 # }
 
 
-MAX_REQUEST_SIZE = 32
+MAX_REQUEST_SIZE = 10
 
 # PROXY_INTERVAL = 5
 
@@ -42,3 +42,6 @@ DOWNLOAD_MIDDLEWARE = {
     "crawler.middleware.RandomHead":2
 
 }
+
+LOCALIZTION = True
+LOCALIZTION_PAHT = 'request_seen.txt'

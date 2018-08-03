@@ -18,7 +18,7 @@ import re
 from lxml import etree
 
 import pymysql
-
+import json
 from crawler import settings
 from mini_scrapy import Request
 from mini_scrapy import Spider
@@ -26,49 +26,56 @@ from mini_scrapy.untils import url_join
 from mini_scrapy.untils.untils import logger
 
 
-class ReviewSpider(Spider):
-
-    name = "TestSpider"
+class SmellSpider(Spider):
+    name = "SmellSpider"
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
-        spider = super(ReviewSpider, cls).from_crawler(crawler, *args, **kwargs)
+        spider = super().from_crawler(crawler, *args, **kwargs)
         host = crawler.settings['MYSQL_HOST']
-        db=crawler.settings['MYSQL_DBNAME']
-        user=crawler.settings['MYSQL_USER']
-        password=crawler.settings['MYSQL_PASSWORD']
-        conn = pymysql.connect(host=host,db=db,user=user,password=password)
+        db = crawler.settings['MYSQL_DBNAME']
+        user = crawler.settings['MYSQL_USER']
+        password = crawler.settings['MYSQL_PASSWORD']
+        conn = pymysql.connect(host=host, db=db, user=user, password=password)
         spider.conn = conn
+
         return spider
+
+    def get_conn(self):
+        host = self.crawler.settings['MYSQL_HOST']
+        db = self.crawler.settings['MYSQL_DBNAME']
+        user = self.crawler.settings['MYSQL_USER']
+        password = self.crawler.settings['MYSQL_PASSWORD']
+        conn = pymysql.connect(host=host, db=db, user=user, password=password)
+        return conn
 
     def start_requests(self):
         cur = self.conn.cursor()
-        cur.execute("""select itemid from raw_item_d
-                        """)
+        cur.execute("""
+                    select itemid from raw_item_d
+                        
+                    """)
         fc = cur.fetchall()
         for i in fc:
-            start_url = "https://www.nosetime.com/xiangshui/"+str(i[0])
+            start_url = "https://www.nosetime.com/app/item.php?id=" + str(i[0])
 
             yield Request(url=start_url,
                           callback=self.get_blog_list,
-                          meta={'item_id':i[0]})
+                          meta={'item_id': i[0]})
 
+    def get_blog_list(self, response):
+        response_dict = json.loads(response.text)
+        mainodors = response_dict['mainodor']
+        for mianodor in mainodors:
+            # print(mianodor)
 
-    def get_blog_list(self,response):
-
-        perfumer_html_list=re.findall("调香师：(.*?)<br />",response.text)
-        if len(perfumer_html_list) != 0:
-            perfumer_html=perfumer_html_list[0]
-            selector = etree.HTML(perfumer_html)
-            perfumers = ','.join(selector.xpath('//a/text()'))
-
-            brand = response.xpath("//ul[@class='item_info']/li/a[1]/@href")[0]
-            url = url_join(response,brand)
-            item = {}
-            item['perfumers'] = perfumers
-            yield item
-            yield Request(url=url,callback=self.brand)
-
-    def brand(self,response):
-        # print(len(response.text))
-        pass
+            sql = """
+            insert raw_item_smell_rank
+value('%s','%s','%s')""" % (response.meta['item_id'], mianodor['uoodor'], mianodor['cnt'])
+            try:
+                conn = self.get_conn()
+                conn.cursor().execute(sql)
+                conn.commit()
+                logger.info("insert OK!" + str(mianodor['uoodor']))
+            except Exception as e:
+                logger.error("Error: %s", str(e), exc_info=True)

@@ -58,9 +58,9 @@ class ReviewSpider(Spider):
             url = url_join(response,brand)
             item = {}
             item['perfumers'] = perfumers
+            print(item)
             yield item
             yield Request(url=url,callback=self.brand)
 
     def brand(self,response):
-        # print(len(response.text))
-        pass
+        print(len(response.text))

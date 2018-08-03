@@ -11,8 +11,9 @@ class Spider(object):
     name = None
     custom_setting = {}
 
-    def __init__(self, name=None, **kwargs):
+    def __init__(self,crawler, name=None, **kwargs):
         """初始化爬虫"""
+        self._set_crawler(crawler)
         if name is not None:
             self.name = name
         if not hasattr(self, "start_urls"):
@@ -21,8 +22,8 @@ class Spider(object):
 
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
-        spider = cls(*args, **kwargs)
-        spider.crawler = spider._set_crawler(crawler)
+        spider = cls(crawler,*args, **kwargs)
+
         return spider
 
     def _set_crawler(self, crawler):

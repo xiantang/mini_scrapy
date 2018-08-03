@@ -39,3 +39,5 @@ DOWNLOADHANDLER_PATH = "mini_scrapy.downloadmiddleware.downloader.DownloadHandle
 DOWNLOAD_MIDDLEWARE = {
     "mini_scrapy.downloadmiddleware.downloadermiddleware.RetryMiddleware":1
 }
+
+LOCALIZTION = False

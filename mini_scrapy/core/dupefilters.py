@@ -3,7 +3,13 @@ from bitarray import bitarray
 # 3rd party
 import mmh3
 
+import os
+
 from mini_scrapy.untils.untils import request_fingerprint
+
+
+
+
 
 
 class BloomFilter(set):
@@ -21,12 +27,7 @@ class BloomFilter(set):
     def __iter__(self):
         return iter(self.bit_array)
 
-    def load(self):
-        """
-        TODO:load requests_seen from text/redis
-        :return:
-        """
-        pass
+
 
     def add(self, item):
         for ii in range(self.hash_count):
@@ -47,18 +48,23 @@ class BloomFilter(set):
 
 class RFPDupeFilter(object):
 
-    def __init__(self, size, hash_count):
+    def __init__(self, size, hash_count,localizion,path):
 
         self.sbf = BloomFilter(
             size, hash_count
         )
+        self.localizion = localizion
+        self.path = path
+        self.load()
 
     @classmethod
     def from_crawler(cls, crawler):
         settings = crawler.settings
         size = settings['BLOOMFILTER_SIZE']
         hash_count = settings['BLOOMFILTER_HASH_COUNT']
-        return cls(size, hash_count)
+        localiztion = settings['LOCALIZTION']
+        path = settings['LOCALIZTION_PAHT']
+        return cls(size, hash_count,localiztion,path)
 
     def request_seen(self, request):
         """
@@ -69,12 +75,30 @@ class RFPDupeFilter(object):
         """
 
         finger = request_fingerprint(request)
-
-        if request.dont_filter == True or request.meta['retry_count']>0:
+        # print(finger)
+        if request.dont_filter == True\
+                or request.meta['retry_count']>0:
             # print("11111")
-
+        #如果request 包含不被过滤或者retry_count>0的参数
+        #就返回没有看到
             return False
         elif finger in self.sbf:
             return True
+        # print(finger)
+        self.add_to_text(finger)
         self.sbf.add(finger)
         return False
+
+    def load(self):
+        """
+        TODO:load requests_seen from text/redis
+        :return:
+        """
+        if os.path.exists(self.path):
+            self.file = open(self.path,'a')
+        else:
+            self.file = open(self.path, 'w')
+
+
+    def add_to_text(self,finger):
+        self.file.write(finger+'\n')

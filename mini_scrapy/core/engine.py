@@ -178,9 +178,9 @@ class Engine(object):
         :return:
         """
         #TODO:写到调度器里面去
-        pass
+        # pass
         #调用收集线程
-        # logger.info("Process_item:\n \t {item}".format(item=item))
+        logger.info("Process_item:\n \t {item}".format(item=item))
         # self.scheduler
     def close_spider(self, start_evt, close_evt):
         """
