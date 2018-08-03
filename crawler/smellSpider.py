@@ -1,4 +1,12 @@
 """
+# @File  : smellSpider.py
+# @Author: xiantang
+# @Date  : 03/08/18
+# @Email :zhujingdi1998@gmail.com
+# blog : zhanshengpipidi.cn/blog
+# Github : github.com/xiantang
+"""
+"""
 # @File  : review_spider.py
 # @Author: xiantang
 # @Date  : 01/08/18

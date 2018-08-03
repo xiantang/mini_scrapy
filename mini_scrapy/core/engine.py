@@ -1,4 +1,3 @@
-
 import time
 
 from threading import Thread, Event
@@ -80,7 +79,12 @@ class Engine(object):
             self._process_request(request, spider)
 
     def _process_request(self, request, spider):
-
+        """
+        负责下载和下载后取出的操作
+        :param request:
+        :param spider:
+        :return:
+        """
         try:
             response = self.download(request, spider)
         except AttributeError as exc:
@@ -89,7 +93,7 @@ class Engine(object):
         except Exception as  exc:
             logger.error("AttributeError: %s", str(exc), exc_info=True)
         else:
-            #判断是不是request对象如果是就重新压入队列
+            # 判断是不是request对象如果是就重新压入队列
             self._handle_downloader_output(response, request, spider)
             return response
 
@@ -105,9 +109,8 @@ class Engine(object):
         response = self.downloader.fetch(request, spider)
         if response is None:
             raise NotFindResponseError("not find response, maybe your downloader did't complete download")
-        #这里直接判断类型 避免之后的meta重置
-        if isinstance(response,Request):
-
+        # 这里直接判断类型 避免之后的meta重置
+        if isinstance(response, Request):
             return response
         response.request = request
         response.meta = request.meta
@@ -135,7 +138,7 @@ class Engine(object):
         :param spider:
         :return:
         """
-        #FIXME:集中处理异常
+        # FIXME:集中处理异常
         callback = request.callback or spider.parse
         try:
             result = callback(response)
@@ -143,9 +146,9 @@ class Engine(object):
             # traceback_full=''.join(traceback.format_exception(*sys.exc_info()))
             # logger.error(traceback_full)
             # logger.error(e)
-            result=[]
+            result = []
             logger.error("NotFindResponseError: %s", str(e), exc_info=True)
-        #可能会导致阻塞
+        # 可能会导致阻塞
         ret = get_result_list(result)
         self.handle_spider_output(ret, spider)
         # 去遍历result
@@ -168,8 +171,17 @@ class Engine(object):
                 logger.error("Spider must retrun Request, dict or None")
 
     def process_item(self, item, spider):
-        spider.process_item(item)
+        """
 
+        :param item:
+        :param spider:
+        :return:
+        """
+        #TODO:写到调度器里面去
+        pass
+        #调用收集线程
+        # logger.info("Process_item:\n \t {item}".format(item=item))
+        # self.scheduler
     def close_spider(self, start_evt, close_evt):
         """
         关闭爬虫
@@ -187,6 +199,3 @@ class Engine(object):
                 close_evt.set()
                 self.running = False
         logger.info("close spider !")
-
-        
-

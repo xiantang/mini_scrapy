@@ -1,7 +1,7 @@
 """Base Spider"""
 
 from mini_scrapy.http.request import Request
-
+from mini_scrapy.untils.untils import logger
 
 
 class Spider(object):
@@ -44,5 +44,6 @@ class Spider(object):
     def parse(self, response):
         raise NotImplementedError
 
-    def process_item(self, item):
-        pass
+    # def process_item(self, item):
+    #     logger.info("Process_item:\n \t {item}".format(item=item))
+        # pass

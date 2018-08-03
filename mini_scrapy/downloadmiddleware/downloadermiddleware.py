@@ -59,15 +59,18 @@ class DownloaderMiddlewareManager(object):
         # return middlewares
         middlewares = []
         middlewares_dict = self.settings["DOWNLOAD_MIDDLEWARE"]
-        for middleware_key,value in middlewares_dict.items():
+        middlewares_list=sorted(middlewares_dict.items(), key=lambda x: x[1])
+        #对字典中序列根据value排序
+        for middleware_key,value in middlewares_list:
 
             middleware = load_object(middleware_key)
-            if hasattr(middleware,"from_crawler"):
-                middleware_instance = middleware.from_crawler(self.spider,self.crawler)
-                middlewares.append(middleware_instance)
-            else:
-                middleware_instance = middleware()
-                middlewares.append(middleware_instance)
+            if  issubclass(middleware,DownloaderMiddleware):
+                if hasattr(middleware,"from_crawler"):
+                    middleware_instance = middleware.from_crawler(self.spider,self.crawler)
+                    middlewares.append(middleware_instance)
+                else:
+                    middleware_instance = middleware()
+                    middlewares.append(middleware_instance)
         return middlewares
     def _add_middleware(self, miw):
         if hasattr(miw, "process_request"):

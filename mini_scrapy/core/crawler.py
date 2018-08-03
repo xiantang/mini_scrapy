@@ -23,9 +23,9 @@ class Crawler():
         return engine
 
     def _load_settings(self):
-        #用户自定义的settings
+        # 用户自定义的settings
         custom_settings = importlib.import_module('settings')
-        #加载default_settings
+        # 加载default_settings
         self.settings = Settings()
         self.settings.load_config(custom_settings)
 

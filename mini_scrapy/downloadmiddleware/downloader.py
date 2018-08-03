@@ -49,7 +49,7 @@ class DownloadHandler(object):
         #     "timeout": self.settings["TIMEOUT"],
         #     "proxies":
         # }
-        timeout = self.settings["TIMEOUT"]
+        # timeout = self.settings["TIMEOUT"]
 
         # request.headers.update(header)
 
@@ -70,12 +70,12 @@ class DownloadHandler(object):
             response = session.post(url, data=request.data,
                                    headers=request.headers,
                                    proxies=meta.get('proxy'),
-                                   timeout=timeout)
+                                   timeout=meta['timeout'])
         else:
             response = session.get(url, data=request.data,
                                     headers=request.headers,
                                     proxies=meta.get('proxy'),
-                                    timeout=timeout)
+                                    timeout=meta['timeout'])
         # prepped = session.prepare_request(req)
         # # logger.info("processing %s", url)
         # response = session.send(prepped,
