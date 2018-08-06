@@ -32,6 +32,7 @@ class BloomFilter(set):
     def add(self, item):
         for ii in range(self.hash_count):
             index = mmh3.hash(item, ii) % self.size
+
             self.bit_array[index] = 1
 
         return self
@@ -102,3 +103,6 @@ class RFPDupeFilter(object):
 
     def add_to_text(self,finger):
         self.file.write(finger+'\n')
+if __name__ == '__main__':
+    b = BloomFilter(1000,10)
+    b.add("aaaaa")

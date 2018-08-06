@@ -45,23 +45,24 @@ class TimeSpider(Spider):
             perfumer_html=perfumer_html_list[0]
             selector = etree.HTML(perfumer_html)
             perfumers = ','.join(selector.xpath('//a/text()'))
-
-            host = settings.MYSQL_HOST
-            db = settings.MYSQL_DBNAME
-            user = settings.MYSQL_USER
-            password = settings.MYSQL_PASSWORD
-            conn = pymysql.connect(host=host, db=db, user=user, password=password)
-            sql = """
-            update
-            raw_item_d
-            set
-            perfumers = '%s'
-            where
-            itemid = '%s'
-            """%(perfumers,response.meta['item_id'])
-            try:
-                conn.cursor().execute(sql)
-                conn.commit()
-                logger.info("insert OK!"+str(perfumers))
-            except Exception as e:
-                logger.error("Error: %s", str(e), exc_info=True)
+            print(perfumers)
+            #
+            # host = settings.MYSQL_HOST
+            # db = settings.MYSQL_DBNAME
+            # user = settings.MYSQL_USER
+            # password = settings.MYSQL_PASSWORD
+            # conn = pymysql.connect(host=host, db=db, user=user, password=password)
+            # sql = """
+            # update
+            # raw_item_d
+            # set
+            # perfumers = '%s'
+            # where
+            # itemid = '%s'
+            # """%(perfumers,response.meta['item_id'])
+            # try:
+            #     conn.cursor().execute(sql)
+            #     conn.commit()
+            #     logger.info("insert OK!"+str(perfumers))
+            # except Exception as e:
+            #     logger.error("Error: %s", str(e), exc_info=True)
