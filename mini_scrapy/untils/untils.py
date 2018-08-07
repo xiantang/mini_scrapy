@@ -4,6 +4,7 @@ import logging
 from importlib import import_module
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse, urlsplit
 
+import aiohttp
 
 from mini_scrapy.http.response import Response
 
@@ -64,7 +65,8 @@ def call_func(func, errback=None, callback=None, *args, **kwargs):
     """
     #我的做法是在这里不处理 上级raise异常
     try:
-        result = func(*args, **kwargs)
+
+        result = aiohttp.func(*args, **kwargs)
 
     except Exception as exc:
     #     # 异常回调函数

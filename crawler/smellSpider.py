@@ -57,25 +57,26 @@ class SmellSpider(Spider):
         fc = cur.fetchall()
         print(fc)
         for i in fc:
-            start_url = "https://www.nosetime.com/app/item.php?id=" + str(i[0])
+            start_url = "http://www.zhanshengpipidi.cn/blog" + str(i[0])
 
             yield Request(url=start_url,
                           callback=self.get_blog_list,
-                          meta={'item_id': i[0]})
+                          meta={'item_id': i[0]},dont_filter=True)
 
     def get_blog_list(self, response):
-        response_dict = json.loads(response.text)
-        mainodors = response_dict['mainodor']
-        for mianodor in mainodors:
-            # print(mianodor)
-
-            sql = """
-            insert raw_item_smell_rank
-value('%s','%s','%s')""" % (response.meta['item_id'], mianodor['uoodor'], mianodor['cnt'])
-            try:
-                conn = self.get_conn()
-                conn.cursor().execute(sql)
-                conn.commit()
-                logger.info("insert OK!" + str(mianodor['uoodor']))
-            except Exception as e:
-                logger.error("Error: %s", str(e), exc_info=True)
+        print(len(response.text))
+#         response_dict = json.loads(response.text)
+#         mainodors = response_dict['mainodor']
+#         for mianodor in mainodors:
+#             # print(mianodor)
+#
+#             sql = """
+#             insert raw_item_smell_rank
+# value('%s','%s','%s')""" % (response.meta['item_id'], mianodor['uoodor'], mianodor['cnt'])
+#             try:
+#                 conn = self.get_conn()
+#                 conn.cursor().execute(sql)
+#                 conn.commit()
+#                 logger.info("insert OK!" + str(mianodor['uoodor']))
+#             except Exception as e:
+#                 logger.error("Error: %s", str(e), exc_info=True)

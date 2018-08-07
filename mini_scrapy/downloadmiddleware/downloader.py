@@ -1,6 +1,7 @@
 from heapq import heappush
 from urllib.parse import urlparse
 
+import aiohttp
 import requests
 from requests import Request
 from scrapy.utils.misc import load_object
@@ -20,11 +21,12 @@ class DownloadHandler(object):
         :param keep_alive:
         :param kwargs:
         """
+        self.client = aiohttp.ClientSession()
         self.keep_alieve = keep_alive
         self.spider = spider
         self.crawler = crawler
         self.settings = settings
-        self.session_map = {}
+        # self.session_map = {}
         self.kwargs = kwargs
 
     @classmethod
@@ -32,59 +34,25 @@ class DownloadHandler(object):
         settings = crawler.settings
         return  cls(spider,crawler,settings,keep_alive,**kwargs)
 
-    def _get_session(self, url):
-        netloc = urlparse(url).netloc
-        if self.keep_alieve:
-            if url not in self.session_map:
-                self.session_map[netloc] = requests.session()
-            return requests.Session()
-        return requests.Session()
+    # def _get_session(self, url):
+    #     netloc = urlparse(url).netloc
+    #     if self.keep_alieve:
+    #         if url not in self.session_map:
+    #             self.session_map[netloc] = requests.session()
+    #         return requests.Session()
+    #     return requests.Session()
 
 
 
-    def fetch(self, request):
+    async def fetch(self, request):
 
-        # kwargs = {
-        #     "headers": request.headers,
-        #     "timeout": self.settings["TIMEOUT"],
-        #     "proxies":
-        # }
-        # timeout = self.settings["TIMEOUT"]
 
-        # request.headers.update(header)
-
-        # req = Request(
-        #     method=request.method,
-        #     url=request.url,
-        #     data=request.data,
-        #     headers=request.headers
-        # )
-        # print(request.headers)
         url = request.url
         meta = request.meta
-        # pre = self._get_session(url)
-        #
-        session = self._get_session(url)
+        # 先不拿
+        # session = self._get_session(url)
+        response = await self.client.request(request.method,url,)
 
-        if request.method == 'POST':
-            response = session.post(url, data=request.data,
-                                   headers=request.headers,
-                                   proxies=meta.get('proxy'),
-                                   timeout=meta['timeout'])
-        else:
-            response = session.get(url, data=request.data,
-                                    headers=request.headers,
-                                    proxies=meta.get('proxy'),
-                                    timeout=meta['timeout'])
-        # prepped = session.prepare_request(req)
-        # # logger.info("processing %s", url)
-        # response = session.send(prepped,
-        #                         proxies=meta.get('proxy'),
-        #                         timeout=timeout
-        #                                 )
-
-        # print(len(response.text))
-        # print(response.text)
         r = Response(response.url, response.status_code,
                      response.headers, response.content, response.text)
 

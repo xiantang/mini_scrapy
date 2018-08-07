@@ -1,3 +1,4 @@
+import asyncio
 import time
 
 from threading import Thread, Event
@@ -38,25 +39,33 @@ class Engine(object):
         #TODO add aiohttp crawler
         self.start_requests = start_requests
 
-        all_routines = []
-        # daemon
-        start_evt = Event()
-        close_evt = Event()
 
+
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(self._init_start_requests())
+        # for i in range(self.max_request_size):
+        #
+        def target():
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(self._next_request(spider))
+            loop.close()
         # 使主线程等待
-        t_init = Thread(target=self._init_start_requests, args=(start_evt,))
-
-        all_routines.append(t_init)
-
+        threading_pool = []
         for i in range(self.max_request_size):
-            all_routines.append(Thread(target=self._next_request, args=(spider, close_evt)))
+            threading_pool.append(Thread(target=target))
+        for threading in threading_pool:
+            threading.start()
 
-        for t in all_routines:
-            t.start()
+        #
 
-        self.close_spider(start_evt, close_evt)
+        #
+        # for t in all_routines:
+        #     t.start()
+        #
+        # self.close_spider(start_evt, close_evt)
 
-    def _init_start_requests(self, start_evt):
+    async def _init_start_requests(self):
         """
         init start requests
         :return:
@@ -64,13 +73,13 @@ class Engine(object):
         logger.info("start crawling !")
         for req in self.start_requests:
             # print(req)
-            self.crawl(req)
+            await self.crawl(req)
         time.sleep(1)
-        start_evt.set()
 
-    def _next_request(self, spider, close_evt):
-        while not close_evt.is_set():
-            request = self.scheduler.next_request()
+
+    async def _next_request(self, spider):
+        while True:
+            request = await self.scheduler.next_request()
             # 从调度器中取出request对象
             if not request:
                 time.sleep(0.2)
@@ -117,13 +126,13 @@ class Engine(object):
         response.meta = request.meta
         return response
 
-    def crawl(self, request):
+    async  def crawl(self, request):
         """
         把request 压进队列
         :param request:
         :return:
         """
-        self.scheduler.enqueue_request(request)
+        await self.scheduler.enqueue_request(request)
 
     def _handle_downloader_output(self, response, request, spider):
         if isinstance(response, Request):
