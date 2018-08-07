@@ -35,6 +35,7 @@ class Engine(object):
         self.execute(self.spider, start_requests)
 
     def execute(self, spider, start_requests):
+        #TODO add aiohttp crawler
         self.start_requests = start_requests
 
         all_routines = []

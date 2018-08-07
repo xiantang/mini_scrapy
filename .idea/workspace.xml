@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4344e082-8d85-4ee3-92c0-ac6b03235a30" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/git_create_new_branch.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawler/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawler/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawler/smellSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/crawler/smellSpider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_scrapy/core/dupefilters.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/core/dupefilters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_scrapy/Markdown/git_create_new_branch.md" beforeDir="false" afterPath="$PROJECT_DIR$/mini_scrapy/Markdown/git_create_new_branch.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,8 +98,8 @@
             <entry file="file://$PROJECT_DIR$/mini_scrapy/Markdown/git_create_new_branch.md">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="44">
-                    <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+                  <first_editor relative-caret-position="176">
+                    <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
                   </first_editor>
                   <second_editor />
                 </state>
@@ -1075,8 +1070,8 @@
     <entry file="file://$PROJECT_DIR$/mini_scrapy/Markdown/git_create_new_branch.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="44">
-            <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <first_editor relative-caret-position="176">
+            <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
           </first_editor>
           <second_editor />
         </state>
