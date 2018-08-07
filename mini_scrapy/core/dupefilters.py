@@ -56,7 +56,7 @@ class RFPDupeFilter(object):
         )
         self.localizion = localizion
         self.path = path
-        self.load()
+        # self.load()
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -86,7 +86,7 @@ class RFPDupeFilter(object):
         elif finger in self.sbf:
             return True
         # print(finger)
-        self.add_to_text(finger)
+        # self.add_to_text(finger)
         self.sbf.add(finger)
         return False
 

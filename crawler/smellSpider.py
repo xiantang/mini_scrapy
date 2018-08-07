@@ -51,11 +51,11 @@ class SmellSpider(Spider):
 
     def start_requests(self):
         cur = self.conn.cursor()
-        cur.execute("""
-                    select itemid from raw_item_d
-                        
-                    """)
+        cur.execute("""select itemid from raw_item_d where itemid not in(
+                        select  distinct itemid
+                      from raw_item_smell_layer_d)""")
         fc = cur.fetchall()
+        print(fc)
         for i in fc:
             start_url = "https://www.nosetime.com/app/item.php?id=" + str(i[0])
 

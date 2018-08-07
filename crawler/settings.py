@@ -17,7 +17,7 @@ COOKIE_ENABLE = False
 # }
 
 
-MAX_REQUEST_SIZE = 5
+MAX_REQUEST_SIZE = 3
 
 # PROXY_INTERVAL = 5
 
@@ -43,5 +43,5 @@ DOWNLOAD_MIDDLEWARE = {
 
 }
 
-LOCALIZTION = True
-LOCALIZTION_PAHT = 'request_seen.txt'
+# LOCALIZTION = True
+# LOCALIZTION_PAHT = 'request_seen.txt'

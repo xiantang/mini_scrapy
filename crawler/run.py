@@ -6,4 +6,4 @@ from mini_scrapy import run
 
 
 # run(ReviewSpider)
-run(TimeSpider)
+run(SmellSpider)
