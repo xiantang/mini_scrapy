@@ -93,6 +93,7 @@ class DownloaderMiddlewareManager(object):
         async def process_request(request):
             for method in self.methods['process_request']:
                 method(request)
+
             response = await download_func(request)
 
             # if response is None:

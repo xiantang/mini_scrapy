@@ -54,12 +54,12 @@ class DownloadHandler(object):
         url = request.url
         meta = request.meta
         # 先不拿
-        session = self._get_session()
+        # session = self._get_session()
         # response =  self.client.get(url)
-
-        async with session.get(url) as response:
-                status_code = response.status
-                text = await response.text()
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                    status_code = response.status
+                    text = await response.text()
 
         r = Response(url = url, status=status_code,
                      text=text)
