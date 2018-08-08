@@ -41,8 +41,8 @@ class SmellSpider(Spider):
 
     def start_requests(self):
 
-        for i in range(100):
-            start_url = "https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics"
+        for i in range(10000):
+            start_url = "http://www.zhanshengpipidi.cn/blog"
 
             yield Request(url=start_url,
                           callback=self.get_blog_list,

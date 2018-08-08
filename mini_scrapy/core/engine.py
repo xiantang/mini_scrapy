@@ -48,9 +48,10 @@ class Engine(object):
         def target():
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
-            # tasks = [asyncio.ensure_future(self._next_request(spider))
-            #          for _ in range(3)]
-            loop.run_until_complete(self._next_request(spider))
+            tasks = [asyncio.ensure_future(self._next_request(spider))
+                     for _ in range(10)]
+            loop.run_until_complete(asyncio.wait(tasks))
+
             loop.close()
         # 使主线程等待
         threading_pool = []
@@ -81,7 +82,7 @@ class Engine(object):
 
 
     async def _next_request(self, spider):
-        while True:
+        while self.scheduler.request_queue.qsize()>0:
             request = await self.scheduler.next_request()
             # 从调度器中取出request对象
             if not request:
