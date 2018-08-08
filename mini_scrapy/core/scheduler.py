@@ -50,6 +50,7 @@ class Scheduler(object):
         """
         if self.request_queue.empty():
             return None
+        #从队列中读取下一个url
         next_request = await self.request_queue.get()
         self.request_queue.task_done()
         return next_request

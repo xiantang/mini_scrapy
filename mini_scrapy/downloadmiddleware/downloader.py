@@ -21,7 +21,7 @@ class DownloadHandler(object):
         :param keep_alive:
         :param kwargs:
         """
-        self.client = aiohttp.ClientSession()
+
         self.keep_alieve = keep_alive
         self.spider = spider
         self.crawler = crawler
@@ -34,6 +34,10 @@ class DownloadHandler(object):
         settings = crawler.settings
         return  cls(spider,crawler,settings,keep_alive,**kwargs)
 
+
+    def _get_session(self):
+        session = aiohttp.ClientSession()
+        return session
     # def _get_session(self, url):
     #     netloc = urlparse(url).netloc
     #     if self.keep_alieve:
@@ -46,16 +50,20 @@ class DownloadHandler(object):
 
     async def fetch(self, request):
 
-
+        
         url = request.url
         meta = request.meta
         # 先不拿
-        # session = self._get_session(url)
-        response = await self.client.request(request.method,url,)
+        session = self._get_session()
+        # response =  self.client.get(url)
 
-        r = Response(response.url, response.status_code,
-                     response.headers, response.content, response.text)
+        async with session.get(url) as response:
+                status_code = response.status
+                text = await response.text()
 
+        r = Response(url = url, status=status_code,
+                     text=text)
+        session.close()
         logger.info("Downloaded ({status}) {request}".format(request=str(request),status = r.status))
         return r
 

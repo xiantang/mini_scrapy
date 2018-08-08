@@ -53,7 +53,7 @@ def iter_children_classes(values, clazz):
             yield obj
 
 
-def call_func(func, errback=None, callback=None, *args, **kwargs):
+async def call_func(func, errback=None, callback=None, *args, **kwargs):
     """
 
     :param func:
@@ -66,7 +66,7 @@ def call_func(func, errback=None, callback=None, *args, **kwargs):
     #我的做法是在这里不处理 上级raise异常
     try:
 
-        result = aiohttp.func(*args, **kwargs)
+        result = await func(*args, **kwargs)
 
     except Exception as exc:
     #     # 异常回调函数

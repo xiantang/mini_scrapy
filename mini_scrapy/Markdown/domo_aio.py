@@ -46,7 +46,7 @@ class Downloader:
         while self.queue.qsize() >0 :
 
             link = await self.queue.get()
-            logging.info('PROCESSING {}'.format(link))
+
 
             content=await self.download(link)
             print(len(content))
@@ -63,15 +63,16 @@ def target(queue):
     asyncio.set_event_loop(loop)
     Downloader(queue).run(loop)
     loop.close()
-    print("111111")
+    # print("111111")
 
 
 
 async  def enqueue(queue):
     array = []
     for i in range(1000):
-        array.append("https://pic.xiaojianjian.net/")
+        array.append("https://www.amazon.com/Car-Charger-AISPORTS-Protection-Cigarette/dp/B07C1LQKVR/ref=zg_mw_7965829011_66?_encoding=UTF8&psc=1&refRID=TG8NEBYGM2KC8P6GEMF5")
     await asyncio.wait([queue.put(link) for link in array])
+a = time.time()
 loop = asyncio.get_event_loop()
 queue = asyncio.Queue()
 loop.run_until_complete(enqueue(queue))
@@ -79,10 +80,13 @@ loop.run_until_complete(enqueue(queue))
 
 
 array = []
-for i in range(40):
+for i in range(20):
     array.append(Thread(target=target,args=(queue,)))
 
 for i in array:
     i.start()
+    # i.join()
 
 loop.close()
+
+logging.getLogger().info(time.time()-a)

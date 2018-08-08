@@ -32,36 +32,21 @@ class SmellSpider(Spider):
     @classmethod
     def from_crawler(cls, crawler, *args, **kwargs):
         spider = super().from_crawler(crawler, *args, **kwargs)
-        host = crawler.settings['MYSQL_HOST']
-        db = crawler.settings['MYSQL_DBNAME']
-        user = crawler.settings['MYSQL_USER']
-        password = crawler.settings['MYSQL_PASSWORD']
-        conn = pymysql.connect(host=host, db=db, user=user, password=password)
-        spider.conn = conn
+
+
 
         return spider
 
-    def get_conn(self):
-        host = self.crawler.settings['MYSQL_HOST']
-        db = self.crawler.settings['MYSQL_DBNAME']
-        user = self.crawler.settings['MYSQL_USER']
-        password = self.crawler.settings['MYSQL_PASSWORD']
-        conn = pymysql.connect(host=host, db=db, user=user, password=password)
-        return conn
+
 
     def start_requests(self):
-        cur = self.conn.cursor()
-        cur.execute("""select itemid from raw_item_d where itemid not in(
-                        select  distinct itemid
-                      from raw_item_smell_layer_d)""")
-        fc = cur.fetchall()
-        print(fc)
-        for i in fc:
-            start_url = "http://www.zhanshengpipidi.cn/blog" + str(i[0])
+
+        for i in range(100):
+            start_url = "https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/JavaScript_basics"
 
             yield Request(url=start_url,
                           callback=self.get_blog_list,
-                          meta={'item_id': i[0]},dont_filter=True)
+                          dont_filter=True)
 
     def get_blog_list(self, response):
         print(len(response.text))

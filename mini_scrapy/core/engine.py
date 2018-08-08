@@ -48,10 +48,13 @@ class Engine(object):
         def target():
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
+            # tasks = [asyncio.ensure_future(self._next_request(spider))
+            #          for _ in range(3)]
             loop.run_until_complete(self._next_request(spider))
             loop.close()
         # 使主线程等待
         threading_pool = []
+        print(self.max_request_size)
         for i in range(self.max_request_size):
             threading_pool.append(Thread(target=target))
         for threading in threading_pool:
@@ -86,9 +89,9 @@ class Engine(object):
                 continue
             # 拿出来下载
 
-            self._process_request(request, spider)
+            await self._process_request(request, spider)
 
-    def _process_request(self, request, spider):
+    async def _process_request(self, request, spider):
         """
         负责下载和下载后取出的操作
         :param request:
@@ -96,7 +99,7 @@ class Engine(object):
         :return:
         """
         try:
-            response = self.download(request, spider)
+            response = await self.download(request, spider)
         except AttributeError as exc:
             logger.error("AttributeError: %s", str(exc), exc_info=True)
             logger.warning("find a error,post to error back.")
@@ -107,7 +110,7 @@ class Engine(object):
             self._handle_downloader_output(response, request, spider)
             return response
 
-    def download(self, request, spider):
+    async def download(self, request, spider):
         """
         把requests的meta传入download
 
@@ -116,7 +119,7 @@ class Engine(object):
         :return:
         """
 
-        response = self.downloader.fetch(request, spider)
+        response = await self.downloader.fetch(request, spider)
         if response is None:
             raise NotFindResponseError("not find response, maybe your downloader did't complete download")
         # 这里直接判断类型 避免之后的meta重置
@@ -149,6 +152,7 @@ class Engine(object):
         :return:
         """
         # FIXME:集中处理异常
+
         callback = request.callback or spider.parse
         try:
             result = callback(response)
